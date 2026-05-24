@@ -1,0 +1,147 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with basic info",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "Unique Google Auth UID of the user"
+        },
+        "email": {
+          "type": "string",
+          "description": "The user's verified email Address"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp when the user account profile record got initialized"
+        }
+      },
+      "required": ["userId", "email", "createdAt"]
+    },
+    "Booking": {
+      "title": "Booking",
+      "description": "Active bookings and purchase transactions",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Auto-generated document ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user making checkout"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full name of delivery / contact recipient"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Strict 10 digit contact phone number"
+        },
+        "address": {
+          "type": "string",
+          "description": "Billing/Shipping/Visiting Physical Address"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["repair", "new", "refurbished"],
+          "description": "The category of booking being performed"
+        },
+        "product": {
+          "type": "string",
+          "description": "Subject display names or customized listing description text"
+        },
+        "amount": {
+          "type": "integer",
+          "description": "Total purchase cost in Rupees (INR)"
+        },
+        "issue": {
+          "type": "string",
+          "description": "Description of the structural/electrical fault of TV in repair orders"
+        },
+        "transactionId": {
+          "type": "string",
+          "description": "Verified UPI reference hashing ID or simulated scan code"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "processing", "success", "failed"],
+          "description": "Workflow phase of the current booking"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp of booking creation"
+        }
+      },
+      "required": [
+        "userId",
+        "name",
+        "phone",
+        "address",
+        "type",
+        "product",
+        "amount",
+        "transactionId",
+        "status",
+        "createdAt"
+      ]
+    },
+    "PriceDropAlert": {
+      "title": "PriceDropAlert",
+      "description": "User notification trigger for price drops on products",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Subscribed alert ID"
+        },
+        "userId": {
+          "type": "string",
+          "description": "UID of the user making the subscription"
+        },
+        "productId": {
+          "type": "string",
+          "description": "ID of the display product being tracked"
+        },
+        "productName": {
+          "type": "string",
+          "description": "Human-friendly label of the display product"
+        },
+        "currentPrice": {
+          "type": "integer",
+          "description": "Current active listing cost"
+        },
+        "targetPrice": {
+          "type": "integer",
+          "description": "Desired target cost limit"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address to notify"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp of alert registration"
+        }
+      },
+      "required": ["id", "userId", "productId", "productName", "currentPrice", "targetPrice", "email", "createdAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Collection storing public metadata profiles."
+    },
+    "bookings/{bookingId}": {
+      "schema": "Booking",
+      "description": "Collection hosting transactions, orders, and diagnostic repairs."
+    },
+    "price_drop_alerts/{alertId}": {
+      "schema": "PriceDropAlert",
+      "description": "Collection storing targets and email notifications for drop in display prices."
+    }
+  }
+}

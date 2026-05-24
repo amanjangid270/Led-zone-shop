@@ -1,0 +1,125 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net default-deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+    
+    // Primitive Definition Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+    
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+    
+    function incoming() {
+      return request.resource.data;
+    }
+    
+    function existing() {
+      return resource.data;
+    }
+
+    // User entity verification helper
+    function isValidUser(data) {
+      return data.keys().hasAll(['userId', 'email', 'createdAt'])
+        && data.keys().size() == 3
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.email is string
+        && data.email.size() <= 128
+        && data.createdAt == request.time;
+    }
+    
+    match /users/{userId} {
+      allow get: if isOwner(userId);
+      allow create: if isOwner(userId) && isValidUser(incoming()) && isValidId(userId);
+      allow update: if isOwner(userId) && isValidUser(incoming())
+                     && incoming().email == existing().email 
+                     && incoming().createdAt == existing().createdAt
+                     && incoming().diff(existing()).affectedKeys().hasOnly(['email']);
+      allow delete: if false;
+    }
+    
+    // Booking entity verification helper
+    function isValidBooking(data) {
+      return data.keys().hasAll(['id', 'userId', 'name', 'phone', 'address', 'type', 'product', 'amount', 'issue', 'transactionId', 'status', 'createdAt'])
+        && data.keys().size() == 12
+        && data.id is string
+        && data.id.size() <= 128
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.name is string
+        && data.name.size() > 0
+        && data.name.size() <= 128
+        && data.phone is string
+        && data.phone.matches('^[0-9]{10}$')
+        && data.address is string
+        && data.address.size() >= 10
+        && data.address.size() <= 512
+        && data.type is string
+        && (data.type == 'repair' || data.type == 'new' || data.type == 'refurbished')
+        && data.product is string
+        && data.product.size() <= 256
+        && data.amount is int
+        && data.amount >= 0
+        && data.issue is string
+        && data.issue.size() <= 512
+        && data.transactionId is string
+        && data.transactionId.size() <= 128
+        && data.status is string
+        && (data.status == 'pending' || data.status == 'processing' || data.status == 'success' || data.status == 'failed')
+        && data.createdAt == request.time;
+    }
+
+    // PriceDropAlert entity verification helper
+    function isValidPriceDropAlert(data) {
+      return data.keys().hasAll(['id', 'userId', 'productId', 'productName', 'currentPrice', 'targetPrice', 'email', 'createdAt'])
+        && data.keys().size() == 8
+        && data.id is string
+        && data.id.size() <= 128
+        && data.userId is string
+        && data.userId == request.auth.uid
+        && data.productId is string
+        && data.productId.size() <= 128
+        && data.productName is string
+        && data.productName.size() <= 256
+        && data.currentPrice is int
+        && data.currentPrice >= 0
+        && data.targetPrice is int
+        && data.targetPrice >= 0
+        && data.email is string
+        && data.email.size() <= 128
+        && data.createdAt == request.time;
+    }
+
+    match /bookings/{bookingId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isValidBooking(incoming()) && isValidId(bookingId);
+      allow update: if isSignedIn() && existing().userId == request.auth.uid 
+                     && existing().status != 'success' 
+                     && existing().status != 'failed'
+                     && isValidBooking(incoming()) 
+                     && incoming().userId == existing().userId
+                     && incoming().createdAt == existing().createdAt
+                     && incoming().diff(existing()).affectedKeys().hasOnly(['name', 'phone', 'address', 'issue', 'status', 'transactionId']);
+      allow delete: if false;
+    }
+
+    match /price_drop_alerts/{alertId} {
+      allow get: if isSignedIn() && existing().userId == request.auth.uid;
+      allow list: if isSignedIn() && resource.data.userId == request.auth.uid;
+      allow create: if isSignedIn() && isValidPriceDropAlert(incoming()) && isValidId(alertId);
+      allow update: if false; // Price triggers are immutable
+      allow delete: if isSignedIn() && existing().userId == request.auth.uid;
+    }
+  }
+}
