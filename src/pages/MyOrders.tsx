@@ -1,10 +1,12 @@
-import { useEffect, useState, useRef } from 'react';
-import { collection, query, where, getDocs, doc, getDoc } from 'firebase/firestore';
+import React, { useEffect, useState, useRef } from 'react';
+import { collection, query, where, getDocs, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useAuthStore } from '../store/auth';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShieldCheck, Calendar, Clock, RefreshCw, ChevronRight, Package, Truck, CheckCircle2, AlertTriangle, Cpu, Receipt, Search, ArrowUpDown, Printer } from 'lucide-react';
+import { ShieldCheck, Calendar, Clock, RefreshCw, ChevronRight, Package, Truck, CheckCircle2, AlertTriangle, Cpu, Receipt, Search, ArrowUpDown, Printer, Copy, Check, Sparkles } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { sendConfirmationEmail } from '../lib/emailService';
 
 interface BookingRecord {
   id: string;
@@ -28,6 +30,20 @@ export const MyOrders = () => {
   const [refreshKey, setRefreshKey] = useState(0);
   const [expandedTrackers, setExpandedTrackers] = useState<Record<string, boolean>>({});
   const navigate = useNavigate();
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const handleCopyReference = (id: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    navigator.clipboard.writeText(id).then(() => {
+      setCopiedId(id);
+      toast.success('Booking ID copied successfully');
+      setTimeout(() => setCopiedId(null), 2000);
+    }).catch((err) => {
+      console.error('Failed to copy text: ', err);
+      toast.error('Failed to copy Booking ID');
+    });
+  };
 
   const PROGRESS_STAGES = [
     { key: 'pending', label: 'Pending', description: 'Application safely received and logged' },
@@ -49,6 +65,32 @@ export const MyOrders = () => {
 
   const toggleTracker = (id: string) => {
     setExpandedTrackers(prev => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const handleSimulateSuccess = async (order: BookingRecord) => {
+    try {
+      const orderRef = doc(db, 'bookings', order.id);
+      await updateDoc(orderRef, { status: 'success' });
+      toast.success('Simulated status update to SUCCESS! Triggers Receipt Email...');
+      
+      // Trigger confirmation email
+      await sendConfirmationEmail({
+        id: order.id,
+        name: order.name,
+        phone: order.phone,
+        address: order.address,
+        type: order.type,
+        product: order.product,
+        amount: order.amount,
+        issue: order.issue,
+        userEmail: user?.email || 'customer@ledzone-diagnostics.com'
+      });
+      
+      setRefreshKey(prev => prev + 1);
+    } catch (err) {
+      console.error('Failed to simulate success:', err);
+      toast.error('Simulation update error');
+    }
   };
 
   // Functional features: search, status filter, sorting
@@ -522,9 +564,23 @@ export const MyOrders = () => {
                           <div className="space-y-3 flex-1">
                             {/* Order Reference Indicator */}
                             <div className="flex flex-wrap items-center gap-2.5">
-                              <span className="text-[9px] font-mono font-black py-1 px-2.5 bg-gray-100 rounded text-gray-500">
-                                REF: {order.id.slice(0, 14)}
-                              </span>
+                              <div className="inline-flex items-center gap-1.5 bg-gray-100 p-1 rounded-xl border border-gray-200/50">
+                                <span className="text-[9px] font-mono font-black pl-2 pr-1 text-gray-600 uppercase">
+                                  REF: {order.id.slice(0, 14)}
+                                </span>
+                                <button
+                                  id={`copy-ref-btn-${order.id}`}
+                                  onClick={(e) => handleCopyReference(order.id, e)}
+                                  className="p-1.5 rounded-lg bg-white hover:bg-cyan-50 text-gray-400 hover:text-cyan-500 transition-all shadow-sm cursor-pointer border border-gray-100"
+                                  title="Copy Booking ID"
+                                >
+                                  {copiedId === order.id ? (
+                                    <Check className="w-3 h-3 text-emerald-500" />
+                                  ) : (
+                                    <Copy className="w-3 h-3" />
+                                  )}
+                                </button>
+                              </div>
                               <span className={`text-[9px] font-mono font-black py-1 px-2.5 rounded uppercase tracking-widest ${
                                 order.type === 'repair' ? 'bg-blue-50 text-blue-600' :
                                 order.type === 'refurbished' ? 'bg-purple-50 text-purple-600' :
@@ -641,6 +697,21 @@ export const MyOrders = () => {
                                       );
                                     })}
                                   </div>
+
+                                  {/* Administrative simulated success button */}
+                                  {order.status !== 'success' && (
+                                    <div className="mt-4 pt-4 border-t border-gray-150 flex justify-end">
+                                      <button
+                                        type="button"
+                                        onClick={() => handleSimulateSuccess(order)}
+                                        className="inline-flex items-center gap-1.5 bg-neutral-900 border border-neutral-800 hover:bg-[#06b6d4] hover:border-cyan-400 hover:text-black text-white font-mono text-[8px] font-black uppercase tracking-widest px-3.5 py-2 rounded-xl shadow-md active:scale-95 transition-all cursor-pointer"
+                                        title="Simulate Firestore update and send email receipt"
+                                      >
+                                        <Sparkles className="w-3.5 h-3.5 text-yellow-400" />
+                                        <span>Simulate Status → Success (Trigger Mock Email)</span>
+                                      </button>
+                                    </div>
+                                  )}
                                 </motion.div>
                               )}
                             </AnimatePresence>

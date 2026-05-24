@@ -104,6 +104,23 @@ export const ProductDetails = () => {
         'https://images.unsplash.com/photo-1509281373149-e957c6296406?auto=format&fit=crop&q=80&w=1000&bg=f5f5f7'
       ];
 
+  // Keyboard navigation for carousel slider (arrow keys)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Ignore if user is inside form inputs
+      if (document.activeElement?.tagName === 'INPUT' || document.activeElement?.tagName === 'TEXTAREA') {
+        return;
+      }
+      if (e.key === 'ArrowLeft') {
+        setActiveImgIndex((prev) => (prev - 1 + imagesToUse.length) % imagesToUse.length);
+      } else if (e.key === 'ArrowRight') {
+        setActiveImgIndex((prev) => (prev + 1) % imagesToUse.length);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [imagesToUse.length]);
+
   const handleDragEnd = (event: any, info: any) => {
     const swipeThreshold = 50;
     if (info.offset.x < -swipeThreshold) {
@@ -130,6 +147,11 @@ export const ProductDetails = () => {
             >
               {/* Backlight visual ambience glow matching active color */}
               <div className="absolute -inset-10 bg-gradient-to-r from-cyan-400/5 via-violet-500/5 to-cyan-400/5 rounded-full blur-[80px]" />
+
+              {/* Counter Indicator Tag in top-left */}
+              <div className="absolute top-4 left-4 z-20 bg-black/75 px-3 py-1.5 rounded-xl border border-white/10 text-white font-mono text-[9px] font-black uppercase tracking-widest backdrop-blur-md shadow-md mb-2">
+                View {activeImgIndex + 1} / {imagesToUse.length}
+              </div>
               
               <AnimatePresence mode="wait">
                 <motion.div 
@@ -154,23 +176,25 @@ export const ProductDetails = () => {
 
               {/* Hand-Gesture Guidance Hint */}
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 px-3 py-1.5 rounded-full backdrop-blur-md opacity-45 group-hover/carousel:opacity-100 transition-opacity flex items-center gap-1.5 select-none z-20 pointer-events-none">
-                <span className="text-[8px] font-black tracking-widest text-white uppercase font-mono">← Drag to Swipe Image →</span>
+                <span className="text-[8px] font-black tracking-widest text-white uppercase font-mono">← Swipe / ← → Arrows to Cycle →</span>
               </div>
 
               {/* Carousel Arrows */}
               <button
                 type="button"
                 onClick={() => setActiveImgIndex((prev) => (prev - 1 + imagesToUse.length) % imagesToUse.length)}
-                className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 border border-gray-100 flex items-center justify-center shadow-md hover:bg-black hover:text-white transition-all opacity-0 group-hover/carousel:opacity-100 z-20 cursor-pointer"
+                className="absolute left-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/85 hover:bg-black hover:text-white border border-gray-100/60 flex items-center justify-center shadow-lg transition-all active:scale-95 z-20 cursor-pointer text-black"
+                title="Previous Image (Left Arrow)"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-900 hover:text-white" />
+                <ChevronLeft className="w-5 h-5" />
               </button>
               <button
                 type="button"
                 onClick={() => setActiveImgIndex((prev) => (prev + 1) % imagesToUse.length)}
-                className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white/95 border border-gray-100 flex items-center justify-center shadow-md hover:bg-black hover:text-white transition-all opacity-0 group-hover/carousel:opacity-100 z-20 cursor-pointer"
+                className="absolute right-4 top-1/2 -translate-y-1/2 w-11 h-11 rounded-full bg-white/85 hover:bg-black hover:text-white border border-gray-100/60 flex items-center justify-center shadow-lg transition-all active:scale-95 z-20 cursor-pointer text-black"
+                title="Next Image (Right Arrow)"
               >
-                <ChevronRight className="w-5 h-5 text-gray-900 hover:text-white" />
+                <ChevronRight className="w-5 h-5" />
               </button>
               
               <button
@@ -181,25 +205,25 @@ export const ProductDetails = () => {
                 }}
                 className="absolute top-4 right-4 w-12 h-12 rounded-full bg-white/95 border border-gray-100 flex items-center justify-center hover:bg-white hover:scale-105 transition-all z-20 shadow-sm"
               >
-                <Heart className={`w-6 h-6 ${isWishlisted ? 'fill-cyan-500 text-cyan-500' : 'text-gray-405'}`} />
+                <Heart className={`w-6 h-6 ${isWishlisted ? 'fill-cyan-500 text-cyan-500' : 'text-gray-400'}`} />
               </button>
             </motion.div>
           </div>
 
-          {/* Dots Indicator with Shimmer previews */}
-          <div className="grid grid-cols-4 gap-4">
-            {imagesToUse.slice(0, 4).map((img, i) => (
+          {/* Filmstrip Smart sliding previews accommodating dynamic number of thumbnails */}
+          <div className="flex overflow-x-auto no-scrollbar gap-3 pb-2 snap-x">
+            {imagesToUse.map((img, i) => (
               <button
                 key={i}
                 type="button"
                 onClick={() => setActiveImgIndex(i)}
-                className={`aspect-video rounded-2xl overflow-hidden border-2 flex items-center justify-center cursor-pointer transition-all ${
+                className={`aspect-video w-24 sm:w-28 flex-shrink-0 rounded-2xl overflow-hidden border-2 flex items-center justify-center cursor-pointer transition-all snap-start ${
                   activeImgIndex === i
-                    ? 'border-cyan-500 shadow-[0_0_15px_rgba(6,182,212,0.3)] bg-white scale-[1.02]'
-                    : 'border-transparent hover:border-gray-200 bg-gray-50'
+                    ? 'border-cyan-500 shadow-[0_0_12px_rgba(6,182,212,0.35)] bg-white scale-[1.03] opacity-100'
+                    : 'border-transparent hover:border-gray-200 bg-gray-50/50 opacity-70 hover:opacity-100'
                 } ${img.startsWith('custom-') ? 'p-0' : 'p-2'}`}
               >
-                <ProductImage src={img} alt="" className="w-full h-full object-contain" />
+                <ProductImage src={img} alt="" className="w-full h-full object-contain rounded-lg" />
               </button>
             ))}
           </div>

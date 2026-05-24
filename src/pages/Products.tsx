@@ -1,35 +1,59 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 import { ProductCard } from '../components/products/ProductCard';
 import { products } from '../lib/data';
 import { useRecommendationStore } from '../store/recommendation';
 import { RecommendationEngine } from '../components/recommendations/RecommendationEngine';
-import { SlidersHorizontal, ArrowUpDown, Filter, RotateCcw } from 'lucide-react';
+import { SlidersHorizontal, ArrowUpDown, Filter, RotateCcw, Sparkles, ArrowRight } from 'lucide-react';
 
 interface ProductsProps {
   type: 'new' | 'refurbished';
 }
 
 const ProductCardSkeleton = () => (
-  <div className="bg-white p-4 rounded-2xl border border-gray-100 flex flex-col justify-between h-96 relative overflow-hidden animate-pulse">
+  <div className="bg-white p-4 rounded-2xl border border-gray-100 flex flex-col justify-between h-96 relative overflow-hidden group shadow-sm bg-gradient-to-b from-white to-zinc-50/20">
+    {/* Animated shimmering highlight */}
+    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100/60 to-transparent -translate-x-full animate-shimmer pointer-events-none" />
+    
     <div>
-      <div className="h-40 bg-gray-100 rounded-xl mb-4" />
-      <div className="h-2 w-1/4 bg-gray-100 rounded mb-2" />
-      <div className="h-4 w-3/4 bg-gray-100 rounded mb-1" />
-      <div className="h-4 w-1/2 bg-gray-100 rounded mb-4" />
-      <div className="flex gap-2 mb-3">
-        <div className="h-4 w-8 bg-gray-100 rounded" />
-        <div className="h-4 w-16 bg-gray-100 rounded" />
+      {/* Aspect Ratio Image Holding Box Skeleton */}
+      <div className="h-40 bg-zinc-50 border border-zinc-100 rounded-xl mb-4 relative overflow-hidden flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100/40 to-transparent -translate-x-full animate-shimmer" />
+        <div className="absolute top-2 left-2 w-10 h-4 bg-zinc-200/70 rounded" />
+        <div className="absolute top-2 right-2 w-8 h-8 rounded-full bg-zinc-200/50" />
+        <div className="w-20 h-20 bg-zinc-200/30 rounded-lg" />
+      </div>
+      
+      {/* Brand skeleton indicator */}
+      <div className="h-3 w-12 bg-zinc-200/50 rounded-sm mb-2 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100/40 to-transparent -translate-x-full animate-shimmer" />
+      </div>
+
+      {/* Title skeleton */}
+      <div className="h-4.5 w-5/6 bg-zinc-200/70 rounded mb-1.5 relative overflow-hidden">
+         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100/40 to-transparent -translate-x-full animate-shimmer" />
+      </div>
+      <div className="h-4.5 w-1/2 bg-zinc-200/70 rounded mb-3.5 relative overflow-hidden">
+         <div className="absolute inset-0 bg-gradient-to-r from-transparent via-zinc-100/40 to-transparent -translate-x-full animate-shimmer" />
+      </div>
+
+      {/* Ratings skeleton */}
+      <div className="flex items-center space-x-1.5 mb-3">
+        <div className="w-3.5 h-3.5 bg-yellow-100/40 rounded" />
+        <div className="h-3 w-10 bg-zinc-200/40 rounded" />
       </div>
     </div>
-    <div className="space-y-2 pt-2 border-t border-gray-50 mt-auto">
-      <div className="flex justify-between">
-        <div className="h-2 w-10 bg-gray-100 rounded" />
-        <div className="h-2 w-20 bg-gray-100 rounded" />
+
+    {/* Bottom price row */}
+    <div className="flex justify-between items-end pt-4 border-t border-zinc-50 mt-auto">
+      <div className="space-y-1">
+        <div className="h-2.5 w-12 bg-zinc-200/45 rounded" />
+        <div className="h-4.5 w-20 bg-zinc-200/85 rounded" />
       </div>
-      <div className="flex justify-between">
-        <div className="h-2 w-12 bg-gray-100 rounded" />
-        <div className="h-2 w-16 bg-gray-100 rounded" />
+      <div className="flex items-center space-x-2">
+        <div className="h-4 w-10 bg-zinc-200/40 rounded" />
+        <div className="w-8 h-8 rounded-full bg-zinc-200/80" />
       </div>
     </div>
   </div>
@@ -271,8 +295,32 @@ export const Products = ({ type }: ProductsProps) => {
               </AnimatePresence>
             </motion.div>
           ) : (
-            <div className="text-center py-20 bg-gray-50 rounded-2xl border border-dashed border-gray-200 text-gray-400 font-black uppercase tracking-widest text-xs">
-              No matching products found matching filters.
+            <div className="text-center py-20 px-8 bg-zinc-50 rounded-3xl border border-dashed border-zinc-200/80 flex flex-col items-center justify-center">
+              {type === 'refurbished' ? (
+                <div className="max-w-md mx-auto space-y-6">
+                  <div className="w-12 h-12 rounded-full bg-cyan-50 flex items-center justify-center text-cyan-600 mx-auto animate-pulse">
+                    <Sparkles className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="text-sm font-black uppercase tracking-widest text-zinc-800">No Renewed Displays</h3>
+                    <p className="text-xs text-zinc-500 leading-relaxed font-medium">
+                      All certified refurbished and renewed LED smart panels have been integrated into our live, premium New Displays partition.
+                    </p>
+                  </div>
+                  <Link
+                    id="goto-new-displays-btn"
+                    to="/new-leds"
+                    className="inline-flex items-center gap-2 bg-black hover:bg-cyan-500 hover:text-black text-white text-[10px] font-black uppercase tracking-widest px-6 py-3.5 rounded-xl transition-all shadow-sm cursor-pointer border border-transparent hover:border-cyan-400 active:scale-95"
+                  >
+                    View New LED Collection
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </Link>
+                </div>
+              ) : (
+                <span className="text-zinc-450 font-black uppercase tracking-widest text-xs">
+                  No matching products found matching filters.
+                </span>
+              )}
             </div>
           )}
         </div>

@@ -11,6 +11,7 @@ import { db, handleFirestoreError, OperationType } from '../lib/firebase';
 import { useAuthStore } from '../store/auth';
 import { useAIBrainStore } from '../store/aiBrainStore';
 import { correctInput, analyzeIssue, detectIntent } from '../lib/AIBrain';
+import { sendConfirmationEmail } from '../lib/emailService';
 
 const VoiceTranscriptionButton = ({ onTranscription, placeholderName = "field" }: { onTranscription: (text: string) => void, placeholderName?: string }) => {
   const [isListening, setIsListening] = useState(false);
@@ -222,6 +223,19 @@ export const Booking = () => {
         status: 'success',
         createdAt: new Date()
       });
+
+      // Automatically trigger simulated email service receipt confirmation
+      sendConfirmationEmail({
+        id: mockHash,
+        name: formData.name,
+        phone: formData.phone,
+        address: formData.address,
+        type: type as 'repair' | 'refurbished' | 'new',
+        product: formData.product || 'General LED Service',
+        amount: amountToPay,
+        issue: type === 'repair' ? formData.issue : 'E2E Purchased Unit',
+        userEmail: user?.email || 'customer@ledzone-diagnostics.com'
+      }).catch(console.error);
     } catch (err) {
       handleFirestoreError(err, OperationType.WRITE, `bookings/${mockHash}`);
       setIsProcessingPayment(false);

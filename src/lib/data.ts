@@ -89,7 +89,7 @@ export const products: Product[] = [
       'custom-infinix-specs'
     ],
     specs: {
-      'Screen Size': '102 cm (40 inch)',
+      'Screen Size': '102 cm (45 inch)',
       'Resolution': 'Full HD (1920 x 1080 Pixels)',
       'Display Technology': 'QLED (Quantum Dot Display)',
       'Audio Output': 'Up to 16W Dual Box Speakers',
@@ -97,9 +97,10 @@ export const products: Product[] = [
       'Hardware Core': '512MB RAM | 4GB ROM Processor Matrix',
       'Refresh Rate': '60Hz Fluid Rate Sync',
       'Smart TV OS': 'Linux OS with Rich Pre-installed Apps',
-      'Wall Mount': 'Included Free Wall Mount Bracket'
+      'Wall Mount': 'Included Free Wall Mount Bracket',
+      'Power Efficiency Score': '94%'
     },
-    isRefurbished: true,
+    isRefurbished: false,
     condition: 'Grade-A++ Certified',
     rating: 4.8,
     reviews: 142,
@@ -178,7 +179,7 @@ export const products: Product[] = [
       'Refresh Rate': '60Hz Smooth Sync Rate',
       'Smart Assistant': 'Android TV OS with Hands-free Google Assistant'
     },
-    isRefurbished: true,
+    isRefurbished: false,
     condition: 'Grade-A Premium Renewed',
     rating: 4.7,
     reviews: 184,

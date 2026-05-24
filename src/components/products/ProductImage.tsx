@@ -1351,6 +1351,142 @@ export const ProductImage: React.FC<ProductImageProps> = ({ src, alt, className 
         </div>
       );
 
+    case 'custom-samsung-main':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#02040a] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-850 shadow-2xl select-none group/samsung ${className}`}
+        >
+          <MeshGrid />
+          
+          {/* Neon Purple-Blue Backlight ambient glow */}
+          <div className="absolute inset-x-8 top-8 bottom-4 bg-gradient-to-tr from-blue-600/25 via-violet-600/10 to-transparent rounded-full blur-[50px] pointer-events-none" />
+
+          {/* Top Row: Samsung Brand & Left Matrix label */}
+          <div className="flex justify-between items-start z-10 w-full">
+            <div className="flex flex-col">
+              <span className="text-xl font-black tracking-widest text-[#00a3ff] font-sans">SAMSUNG</span>
+              <span className="text-[5.5px] tracking-widest text-zinc-400 font-extrabold font-mono uppercase mt-0.5">
+                NEO QLED 4K QUANTUM ENGINE
+              </span>
+            </div>
+            
+            <div className="flex items-center space-x-1 border border-zinc-800 bg-black/60 px-2 py-0.5 rounded">
+              <span className="text-[5px] font-black text-[#a1a1aa] uppercase tracking-widest font-mono">
+                98" MODEL QA98QN90A
+              </span>
+            </div>
+          </div>
+
+          {/* Core Screen Visual Art: Pulsing Neon Cube Spectrum */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <motion.div 
+              animate={{ rotate: [0, 90, 180, 270, 360] }}
+              transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
+              className="relative w-40 h-40 flex items-center justify-center opacity-85"
+            >
+              <svg className="w-full h-full text-indigo-400 fill-none stroke-current" viewBox="0 0 100 100">
+                <defs>
+                  <radialGradient id="samsungCore" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="#fff" stopOpacity="0.9" />
+                    <stop offset="40%" stopColor="#3b82f6" stopOpacity="0.7" />
+                    <stop offset="100%" stopColor="#02040a" stopOpacity="0" />
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="10" fill="url(#samsungCore)" />
+                <rect x="35" y="35" width="30" height="30" rx="4" stroke="#00a3ff" strokeWidth="0.8" className="animate-pulse" />
+                <rect x="25" y="25" width="50" height="50" rx="8" stroke="#8b5cf6" strokeWidth="0.5" strokeDasharray="3 3" />
+                <line x1="50" y1="5" x2="50" y2="95" stroke="#3b82f6" strokeWidth="0.25" />
+                <line x1="5" y1="50" x2="95" y2="50" stroke="#3b82f6" strokeWidth="0.25" />
+              </svg>
+            </motion.div>
+          </div>
+
+          {/* Bottom Row Labelings */}
+          <div className="flex justify-between items-end z-10 w-full mt-auto">
+            <div className="bg-gradient-to-r from-blue-700 to-indigo-700 text-white px-3 py-1.5 rounded-r-xl border border-blue-600/30">
+              <div className="text-2xl font-black italic leading-none font-sans">98"</div>
+              <div className="text-[5.5px] font-extrabold uppercase tracking-widest mt-0.5 font-mono">NEO QLED CHASSIS</div>
+            </div>
+
+            <div className="flex flex-col items-end text-right bg-black/80 p-2 rounded-lg border border-zinc-800">
+              <span className="text-[8px] font-black text-white tracking-widest uppercase">QUANTUM MATRIX PRO</span>
+              <span className="text-[6px] font-bold text-zinc-400 font-mono mt-0.5">120W Dolby Atmos Sound Ready</span>
+            </div>
+          </div>
+
+          {/* Silent Thin Support stand legs */}
+          <div className="absolute bottom-0 left-[24%] right-[24%] h-0.5 bg-zinc-800 rounded-t-sm" />
+        </div>
+      );
+
+    case 'custom-oneplus-main':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#050505] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-900 shadow-2xl select-none group/oneplus ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Red and cyan neon backlight fluid blend */}
+          <div className="absolute -inset-10 bg-gradient-to-r from-[#f43f5e]/15 via-transparent to-cyan-500/10 rounded-full blur-[60px]" />
+
+          {/* Top Row: OnePlus Branding logo */}
+          <div className="flex justify-between items-start z-10 w-full">
+            <div className="flex flex-col">
+              <div className="flex items-center space-x-1">
+                <span className="px-1.5 py-0.5 bg-[#f43f5e] text-white rounded font-sans font-black text-[9px] leading-none mb-0.5">1+</span>
+                <span className="text-lg font-black tracking-tighter text-white font-sans">ONEPLUS</span>
+              </div>
+              <span className="text-[6px] tracking-widest text-[#f43f5e] font-black font-mono uppercase mt-0.5">
+                BEZEL-LESS DISPLAY CORE
+              </span>
+            </div>
+
+            <div className="bg-zinc-950 border border-zinc-800 px-2 py-0.5 rounded flex items-center space-x-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-red-400 block animate-ping" />
+              <span className="text-[5.5px] font-bold tracking-widest uppercase font-mono text-zinc-300">
+                QC Certified Renewed
+              </span>
+            </div>
+          </div>
+
+          {/* Fluid colorful flow center graphic */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+            <div className="w-56 h-28 transform overflow-hidden rounded-lg border border-zinc-900/20 bg-black/45 p-1">
+              <svg className="w-full h-full text-rose-500 fill-none" viewBox="0 0 100 50">
+                <path d="M 0 30 Q 25 10 50 25 T 100 20 L 100 50 L 0 50 Z" fill="url(#opFluid)" className="opacity-95" />
+                <path d="M 0 35 C 30 20, 60 40, 100 28 L 100 50 L 0 50 Z" fill="#06b6d4" fillOpacity="0.25" />
+                <defs>
+                  <linearGradient id="opFluid" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0%" stopColor="#f43f5e" />
+                    <stop offset="100%" stopColor="#ec4899" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </div>
+          </div>
+
+          {/* Bottom Spec badges */}
+          <div className="flex justify-between items-end z-10 w-full mt-auto">
+            <div className="bg-[#f43f5e] text-white px-2.5 py-1 rounded-r-lg shadow-lg">
+              <span className="text-lg font-black italic leading-none font-sans">50"</span>
+            </div>
+
+            <div className="flex items-center space-x-2 bg-black/80 backdrop-blur-md p-1.5 rounded-lg border border-zinc-800">
+              <div className="flex flex-col text-right">
+                <span className="text-[7.5px] font-black uppercase text-zinc-100 font-sans tracking-wide">30W Dynaudio Stack</span>
+                <span className="text-[5.5px] text-zinc-400 font-mono mt-0.5">Gamma Engine AI Enabled</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Base pedestal supports */}
+          <div className="absolute bottom-0 left-[20%] w-1.5 h-2 bg-zinc-650" />
+          <div className="absolute bottom-0 right-[20%] w-1.5 h-2 bg-zinc-650" />
+        </div>
+      );
+
     default:
       return (
         <img

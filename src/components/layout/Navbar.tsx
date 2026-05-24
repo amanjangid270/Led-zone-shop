@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ShoppingCart, Heart, Menu, X, Tv, User as UserIcon, LogOut } from 'lucide-react';
+import { ShoppingCart, Heart, Menu, X, Tv, User as UserIcon, LogOut, QrCode } from 'lucide-react';
 import { useShopStore } from '../../store/shop';
 import { useAuthStore } from '../../store/auth';
 import { useEffect, useState, useRef } from 'react';
+import { PaymentGuideModal } from './PaymentGuideModal';
 
 export const Navbar = () => {
   const { cart, wishlist } = useShopStore();
@@ -11,6 +12,7 @@ export const Navbar = () => {
   const location = useLocation();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isPaymentGuideOpen, setIsPaymentGuideOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,7 +34,6 @@ export const Navbar = () => {
   const links = [
     { name: 'Home', path: '/' },
     { name: 'New LEDs', path: '/new-leds' },
-    { name: 'Refurbished', path: '/refurbished-leds' },
     { name: 'Repair Booking', path: '/booking?type=repair' },
     { name: 'My Orders', path: '/my-orders' },
   ];
@@ -50,7 +51,7 @@ export const Navbar = () => {
             </span>
           </Link>
 
-          <div className="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-widest">
+          <div className="hidden md:flex space-x-6 text-[10px] font-bold uppercase tracking-widest items-center">
             {links.map((link) => {
               const fullPath = location.pathname + location.search;
               const isActive = link.path === '/' 
@@ -73,6 +74,17 @@ export const Navbar = () => {
           </div>
 
           <div className="flex items-center space-x-4">
+            {/* Payment Guide Action Trigger */}
+            <button
+              id="nav-payment-guide-btn"
+              onClick={() => setIsPaymentGuideOpen(true)}
+              className="flex items-center gap-1 text-[10px] font-black uppercase tracking-widest text-zinc-500 hover:text-[#06b6d4] transition-all bg-zinc-50 border border-zinc-200/65 hover:border-[#06b6d4]/40 px-3 py-1.5 rounded-xl cursor-pointer"
+              title="QR Payment Guide"
+            >
+              <QrCode className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Pay Guide</span>
+            </button>
+
             <Link to="/wishlist" className="relative group flex items-center text-gray-400 hover:text-black transition-colors cursor-pointer">
               <Heart className="w-5 h-5" />
               {wishlist.length > 0 && (
@@ -182,6 +194,9 @@ export const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Payment Guide Modal */}
+      <PaymentGuideModal isOpen={isPaymentGuideOpen} onClose={() => setIsPaymentGuideOpen(false)} />
     </nav>
   );
 };

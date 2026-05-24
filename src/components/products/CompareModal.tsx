@@ -83,11 +83,32 @@ export const CompareModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: ()
                   {allSpecs.map(spec => (
                     <div key={spec} className="grid items-center rounded bg-gray-50/50 hover:bg-gray-50 transition-colors py-3" style={{ gridTemplateColumns: `repeat(${compareProducts.length + 1}, minmax(0, 1fr))` }}>
                       <div className="font-bold text-[10px] text-gray-500 uppercase tracking-widest px-4">{spec}</div>
-                      {compareProducts.map(p => (
-                        <div key={p.id} className="px-4 text-sm font-medium text-gray-900 text-center">
-                          {p.specs[spec] || '-'}
-                        </div>
-                      ))}
+                      {compareProducts.map(p => {
+                        const val = p.specs[spec];
+                        if (spec === 'Power Efficiency Score' && val) {
+                          const percentageStr = val.includes('%') ? val : `${val}%`;
+                          return (
+                            <div key={p.id} className="px-4 text-sm font-bold text-gray-900 text-center flex flex-col items-center justify-center">
+                              <span className="text-[#06b6d4] font-black font-mono text-xs mb-1 bg-cyan-50 px-2 py-0.5 rounded-md border border-cyan-100">
+                                {val}
+                              </span>
+                              <div className="w-full max-w-[140px] bg-zinc-200 h-3 rounded-full overflow-hidden border border-zinc-300 p-0.5 shadow-inner">
+                                <motion.div 
+                                  initial={{ width: 0 }}
+                                  animate={{ width: percentageStr }}
+                                  transition={{ duration: 1, ease: 'easeOut' }}
+                                  className="bg-gradient-to-r from-cyan-400 to-emerald-400 h-full rounded-full"
+                                />
+                              </div>
+                            </div>
+                          );
+                        }
+                        return (
+                          <div key={p.id} className="px-4 text-sm font-medium text-gray-900 text-center">
+                            {val || '-'}
+                          </div>
+                        );
+                      })}
                     </div>
                   ))}
                 </div>
