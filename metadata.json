@@ -1,6 +1,6 @@
 {
   "name": "Led Zone",
   "description": "Premium LED service and e-commerce platform combining booking services with a product marketplace (new and refurbished LED TVs). Features QR payment, AI chatbot, and smooth glassmorphism UI.",
-  "requestFramePermissions": [],
+  "requestFramePermissions": ["camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

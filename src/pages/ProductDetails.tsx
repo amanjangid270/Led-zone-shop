@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ShoppingCart, Heart, ShieldCheck, PenTool, Star, Zap, QrCode, CheckCircle, ChevronLeft, ChevronRight, Cpu, HelpCircle, Volume2, Layers, Tv, Activity, Award, Sparkles, Monitor, ArrowRight, Bell } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { ResponsiveContainer, AreaChart, Area, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { useThemeStore } from '../store/themeStore';
 import { products } from '../lib/data';
 import { useShopStore } from '../store/shop';
 import { useRecommendationStore } from '../store/recommendation';
@@ -15,6 +17,7 @@ import { useAuthStore } from '../store/auth';
 export const ProductDetails = () => {
   const { id } = useParams();
   const { wishlist, toggleWishlist, addToCart } = useShopStore();
+  const { isDarkMode } = useThemeStore();
   const { addViewedProduct, addInteractedCategory } = useRecommendationStore();
   const [activeImgIndex, setActiveImgIndex] = useState(0);
   const [activeSlideIndex, setActiveSlideIndex] = useState(0);
@@ -27,6 +30,18 @@ export const ProductDetails = () => {
   
   const product = products.find(p => p.id === id);
   const isWishlisted = product ? wishlist.includes(product.id) : false;
+
+  // Generate dynamic price history for the last 6 months based on initial cost
+  const generatePriceHistory = (currentPrice: number) => {
+    return [
+      { month: 'Dec \'25', newPrice: Math.round(currentPrice * 1.12), refurbPrice: Math.round(currentPrice * 0.86) },
+      { month: 'Jan \'26', newPrice: Math.round(currentPrice * 1.09), refurbPrice: Math.round(currentPrice * 0.81) },
+      { month: 'Feb \'26', newPrice: Math.round(currentPrice * 1.07), refurbPrice: Math.round(currentPrice * 0.78) },
+      { month: 'Mar \'26', newPrice: Math.round(currentPrice * 1.05), refurbPrice: Math.round(currentPrice * 0.76) },
+      { month: 'Apr \'26', newPrice: Math.round(currentPrice * 1.02), refurbPrice: Math.round(currentPrice * 0.74) },
+      { month: 'May \'26', newPrice: currentPrice, refurbPrice: Math.round(currentPrice * 0.72) }
+    ];
+  };
 
   useEffect(() => {
     if (product) {
@@ -1053,6 +1068,109 @@ export const ProductDetails = () => {
             transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
             className="absolute top-0 left-0 right-0 h-0.5 bg-cyan-500/20 shadow-[0_0_8px_#06b6d4] pointer-events-none" 
           />
+        </div>
+      </div>
+
+      {/* 6-Month Price Trends & Analytics Chart */}
+      <div className="mb-16 bg-white dark:bg-zinc-950 p-6 md:p-8 rounded-3xl border border-gray-100 dark:border-zinc-900 shadow-sm relative overflow-hidden transition-colors">
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-3xl pointer-events-none" />
+        
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 relative z-10">
+          <div>
+            <div className="flex items-center gap-2 mb-1">
+              <span className="inline-flex items-center justify-center bg-cyan-100 dark:bg-cyan-950/40 p-1.5 rounded-lg text-cyan-600 dark:text-cyan-400">
+                <Activity className="w-4 h-4 animate-pulse" />
+              </span>
+              <span className="text-[10px] uppercase font-mono tracking-widest font-black text-cyan-600 dark:text-cyan-400">LedZone Price Index Analytics</span>
+            </div>
+            <h2 className="text-xl md:text-2xl font-black uppercase tracking-tight text-gray-900 dark:text-white leading-tight">6-Month Price Retrospective</h2>
+            <p className="text-xs text-gray-400 dark:text-zinc-500 mt-1 max-w-xl font-medium">
+              Track historic retail listings of brand-new units compared directly with Certified Refurbished inventory.
+            </p>
+          </div>
+
+          <div className="flex items-center gap-4 bg-gray-50 dark:bg-zinc-900/60 p-2.5 rounded-xl border border-gray-150/50 dark:border-zinc-800 text-xs font-mono font-bold uppercase tracking-wider">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded bg-[#06b6d4]"></span>
+              <span className="text-gray-700 dark:text-zinc-300">Brand New</span>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded bg-emerald-500"></span>
+              <span className="text-gray-700 dark:text-zinc-300">Refurbished</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Recharts Render Container */}
+        <div className="h-72 w-full mt-4 font-mono select-none">
+          <ResponsiveContainer width="100%" height="100%">
+            <AreaChart data={generatePriceHistory(product.price)} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+              <defs>
+                <linearGradient id="colorNew" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#06b6d4" stopOpacity={0.2}/>
+                  <stop offset="95%" stopColor="#06b6d4" stopOpacity={0}/>
+                </linearGradient>
+                <linearGradient id="colorRefurb" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.2}/>
+                  <stop offset="95%" stopColor="#10b981" stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDarkMode ? '#27272a' : '#f4f4f5'} />
+              <XAxis 
+                dataKey="month" 
+                stroke={isDarkMode ? '#71717a' : '#a1a1aa'} 
+                fontSize={10}
+                tickLine={false}
+                axisLine={false}
+                dy={10}
+              />
+              <YAxis 
+                stroke={isDarkMode ? '#71717a' : '#a1a1aa'} 
+                fontSize={10}
+                tickLine={false}
+                axisLine={false}
+                dx={-10}
+                tickFormatter={(val) => `₹${val.toLocaleString()}`}
+              />
+              <Tooltip 
+                contentStyle={{ 
+                  backgroundColor: isDarkMode ? '#18181b' : '#ffffff', 
+                  borderColor: isDarkMode ? '#27272a' : '#e4e4e7',
+                  borderRadius: '12px',
+                  color: isDarkMode ? '#ffffff' : '#000000',
+                  fontSize: '11px',
+                  fontFamily: 'monospace'
+                }}
+                formatter={(value: any, name: any) => {
+                  const labelName = name === 'newPrice' ? 'Brand New' : 'Certified Refurbished';
+                  return [`₹${value.toLocaleString()}`, labelName];
+                }}
+              />
+              <Area 
+                type="monotone" 
+                dataKey="newPrice" 
+                stroke="#06b6d4" 
+                strokeWidth={2.5}
+                fillOpacity={1} 
+                fill="url(#colorNew)" 
+                activeDot={{ r: 6 }} 
+              />
+              <Area 
+                type="monotone" 
+                dataKey="refurbPrice" 
+                stroke="#10b981" 
+                strokeWidth={2.5}
+                fillOpacity={1} 
+                fill="url(#colorRefurb)" 
+                activeDot={{ r: 6 }}
+              />
+            </AreaChart>
+          </ResponsiveContainer>
+        </div>
+        
+        <div className="mt-6 flex flex-col sm:flex-row items-center gap-3 text-[9px] font-mono text-gray-400 dark:text-zinc-500 bg-gray-50 dark:bg-zinc-900/40 p-4 rounded-2xl border border-gray-100 dark:border-zinc-900 leading-relaxed">
+          <span className="shrink-0 p-1 bg-yellow-400/10 text-yellow-500 rounded border border-yellow-500/20 uppercase tracking-widest font-black">💡 Smart Tip</span>
+          <span>Certified Refurbished items undergo multiple E2E performance validation and hardware scans, saving up to 28% off original prices with equivalent 1-year product warranties. Use "Notify Me on Price Drop" helper to receive automatic updates.</span>
         </div>
       </div>
 

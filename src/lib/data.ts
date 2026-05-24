@@ -383,5 +383,362 @@ export const products: Product[] = [
         features: ["20W Soundwave Surround Acoustics", "178 Degrees Wide View Angles L-R", "300 Nits Balanced White Points", "BEE 4-Star High Power-Saving Ratio"]
       }
     ]
+  },
+  {
+    id: 'realme-55-techlife',
+    name: 'realme TechLife 139 cm (55 inch) QLED Ultra HD (4K) Smart Google TV 2026 Edition (55UHDGQRASDQ)',
+    brand: 'Realme',
+    price: 28999,
+    originalPrice: 49999,
+    image: 'custom-realme-main',
+    images: [
+      'custom-realme-main',
+      'custom-realme-audio',
+      'custom-realme-performance',
+      'custom-realme-smooth',
+      'custom-realme-angle',
+      'custom-realme-dimensions'
+    ],
+    specs: {
+      'Screen Size': '139 cm (55 inch)',
+      'Resolution': 'Ultra HD 4K (3840 x 2160 Pixels)',
+      'Display Technology': 'QLED (Quantum Dot LED Display)',
+      'Audio Output': '26W Expertly Tuned Speakers Setup',
+      'Sound Technology': 'Dolby Audio Spatial Surrounding',
+      'Dolby Vision': 'Supported Elite Multi-color Core',
+      'Specs Storage': '1GB RAM | 8GB ROM Storage Master',
+      'Refresh Rate': '60Hz Fluid Smooth Rate Sync',
+      'Smart OS': 'Smart Google TV with Google Assistant',
+      'Power Efficiency': 'BEE 5-Star Highest Rating (95%)'
+    },
+    isRefurbished: false,
+    rating: 4.9,
+    reviews: 412,
+    buyUrl: 'https://fktr.in/aC5fgc2',
+    slides: [
+      {
+        title: 'Realme TechLife 55" QLED',
+        headline: '139 cm (55") Ultra HD 4K Google TV',
+        description: 'Step into a realm of 16.78 billion colors with advanced QLED Quantum Dot display, Google TV 5.0, and a stunning edgeless design.',
+        image: 'custom-realme-main',
+        features: ['139 cm (55") Ultra HD (4K) QLED Display', '16.78 Billion Cinematic Color Gamut', 'Official Android Google TV OS', 'Stunning Metallic Bezel-less Framework']
+      },
+      {
+        title: 'Expertly Tuned Sound',
+        headline: '26W Dual Speaker Dolby Array',
+        description: 'Immerse yourself in expertly tuned, powerful 26W deep-bass audio co-certified with Dolby Audio for cinematic home theater surround sound.',
+        image: 'custom-realme-audio',
+        features: ['Powerful 26W Stereo Speakers set', 'Dolby Audio Spatial Surround Decoder', '5 Adaptive Hardware Sound Equalizers', 'Acoustic Down-Firing Resonation Design']
+      },
+      {
+        title: 'High-Performance Architecture',
+        headline: 'Processor Power & Memory Storage',
+        description: 'A high-performance Quad Core processor delivers zero-lag operations, coupled with 1GB RAM and 8GB ROM storage for fluid app multi-tasking.',
+        image: 'custom-realme-performance',
+        features: ['High-Fidelity Quad Core Compute Chip', '1GB Active Running System Memory', '8GB Local Space for 10000+ Smart Apps', 'Optimized System Interface Operations']
+      },
+      {
+        title: 'Zero-Lag Interruption-Free',
+        headline: 'Dual Band Wi-Fi & Elite Graphics Unit',
+        description: 'Stay connected seamlessly with dual band 2.4 GHz + 5 GHz Wi-Fi while the built-in graphics engine takes action for lag-free console playback.',
+        image: 'custom-realme-smooth',
+        features: ['Advanced 2.4 GHz & 5 GHz Dual-Band Wi-Fi', 'High-Speed Integrated Graphic Processor', 'Zero Motion Latency Video Decoders', 'Seamless Streaming Without Interruption']
+      },
+      {
+        title: 'Chassis Profile & Aesthetics',
+        headline: 'Ultra-Thin Profile Bezel Matrices',
+        description: 'Crafted to display maximum screen real estate. The minimalist metallic stand base and ultra-narrow trim fit any elite room design.',
+        image: 'custom-realme-angle',
+        features: ['Sleek High-End Metal Border Trims', 'Rigid Polymer Pedestal Stand Feet Base', 'Wide 178-Degree Cinematic Viewing Arc', 'Elegant Visual Centerpiece Accent Board']
+      },
+      {
+        title: 'Dimensions & BEE Eco Index',
+        headline: 'Perfect Physical Dimensions Schematic',
+        description: 'Accurate design parameters: 720mm width by 475mm height with 210mm depth. Integrates BEE Star guidelines for ultra energy-conserving operations.',
+        image: 'custom-realme-dimensions',
+        features: ['Width 720 mm Slim Profile Blueprint', 'Height 475 mm Panel Stand Profile', 'BEE Certified Eco Power Efficiency Label', 'Total 800 mm Bezel Diagonal Span Outline']
+      }
+    ]
+  },
+  {
+    id: 'samsung-50-crystal',
+    name: 'Crystal Vision AI 125 cm (50 inch) Ultra HD (4K) LED Smart Tizen TV with 4K Upscaling HDR 10+ Football Mode Voice Assistance Remote Control PurColor Slim Look Samsung Knox Security 150+ Free Channels (UA50UE83AHULXL)',
+    brand: 'Samsung',
+    price: 42990,
+    originalPrice: 64900,
+    image: 'custom-samsung-main',
+    images: [
+      'custom-samsung-main',
+      'custom-samsung-vision-ai',
+      'custom-samsung-football',
+      'custom-samsung-processor',
+      'custom-samsung-hdr',
+      'custom-samsung-purcolor',
+      'custom-samsung-angle'
+    ],
+    specs: {
+      'Screen Size': '125 cm (50 inch)',
+      'Resolution': 'Ultra HD 4K (3840 x 2160 Pixels)',
+      'Display Technology': 'LED Smart Tizen TV with 4K Upscaling',
+      'HDR Support': 'HDR 10+ with High Contrast Peak',
+      'Smart Features': 'Voice Assistance, Web Browser, 150+ Free Channels',
+      'Sound Output': '30W High Fidelity Stereo Speakers setup',
+      'Aesthetic Profile': 'Slim Look narrow bezel framing design',
+      'Security System': 'Samsung Knox Security Certified'
+    },
+    isRefurbished: false,
+    rating: 4.8,
+    reviews: 588,
+    buyUrl: 'https://fktr.in/8DMq060',
+    slides: [
+      {
+        title: 'Crystal Vision AI 50"',
+        headline: '50" Ultra HD (4K) LED Smart Tizen TV',
+        description: 'Upgrade your entertainment with the brilliant Crystal Vision AI series, combining gorgeous Tizen Smart OS, 150+ free channels, and a slim elegant profile.',
+        image: 'custom-samsung-main',
+        features: ['125 cm (50 inch) UHD screen display', 'Official Tizen Smart TV OS', 'Knox Security Advanced Protection', 'Instant access to 150+ free channels']
+      },
+      {
+        title: 'Samsung Vision AI Companion',
+        headline: 'AI-Guided Live Hub and Interactive Companion',
+        description: 'Get instant answers, smart voice queries, and dynamic content suggestions. Features integrated support for Copilot by Microsoft, Perplexity AI, and customized wallpapers.',
+        image: 'custom-samsung-vision-ai',
+        features: ['Translucent interactive query widgets', 'Live sports answer assistance', 'Copilot & Perplexity AI platforms', 'Generative desktop style mapping']
+      },
+      {
+        title: 'Immersive Football Mode',
+        headline: 'Vibrant Pitch Color Mapping & Crowd Acoustics',
+        description: 'Activate Football Mode to experience maximum grass color saturation and powerful 30W stadium crowd roar acoustics that bring the stadium to life.',
+        image: 'custom-samsung-football',
+        features: ['Optimized grass green saturation', '30W Expertly Tuned Surround Speakers', 'Real-time multi-channel crowd audio resonance', 'Fluid motion rate stabilizers']
+      },
+      {
+        title: 'Crystal Processor 4K',
+        headline: 'Next-Gen Upscaling & Advanced Color Mapping',
+        description: 'Powered by the high-performance Crystal Processor 4K which optimizes contrast, upscales low-resolution content, and monitors real-time color balance.',
+        image: 'custom-samsung-processor',
+        features: ['Advanced 4K Upscaling core compute', 'Real-time dynamic color matching', 'Hardware level contrast adjustments', 'Optimized app launcher response speed']
+      },
+      {
+        title: 'Brilliant HDR 10+ Contrasts',
+        headline: 'Reveal High Contrast Peak & Forest Scenic Depths',
+        description: 'Enjoy stunning picture depth with HDR 10+, unlocking hidden details in dark shadow forests and delivering blindingly bright solar ray highlights.',
+        image: 'custom-samsung-hdr',
+        features: ['HDR 10+ premium range capabilities', 'Ultimate peak highlight luminance', 'Ultra-deep natural shadow details', 'Reduced backlight blooming effects']
+      },
+      {
+        title: 'Vibrant PurColor Shading',
+        headline: '1024 Chromatic Color Map Reference Points',
+        description: 'Experience fully saturated cinematic color gamuts. PurColor technology provides fine shades and sub-pixel color tuning for lifelike displays.',
+        image: 'custom-samsung-purcolor',
+        features: ['1024 unique color mapping steps', 'Lifelike details in natural tones', 'Perfect color depth for animated movies', 'Rich and vibrant spatial graphics map']
+      },
+      {
+        title: 'Narrow Slim Look Profile',
+        headline: 'Bezel-less Screen & Pedestal Stand Feet',
+        description: 'Designed to look gorgeous from any viewing angle. The slim physical profile, metallic-look borders, and minimalist stand keep your eyes entirely on the screen.',
+        image: 'custom-samsung-angle',
+        features: ['Narrow screen border profile blueprint', 'Rigid dual pedestal stand configuration', 'High-quality Knox-secured physical enclosure', 'Sleek minimalist TV backpanel backing']
+      }
+    ]
+  },
+  {
+    id: 'wobble-55-x-series',
+    name: 'Wobble X Series 138.7 cm (55 inch) QLED Ultra HD (4K) Smart Google TV with MEMC Dolby Vision| 80W Dolby Atmos| ALLM 120Hz VRR (WB55QDXGU2875T24)',
+    brand: 'Wobble',
+    price: 28999,
+    originalPrice: 59999,
+    image: 'custom-wobble55-main',
+    images: [
+      'custom-wobble55-main',
+      'custom-wobble55-features',
+      'custom-wobble55-qled',
+      'custom-wobble55-audio',
+      'custom-wobble55-profiles'
+    ],
+    specs: {
+      'Screen Size': '138.7 cm (55 inch)',
+      'Resolution': 'Ultra HD 4K (3840 x 2160 Pixels)',
+      'Display Technology': 'QLED (Quantum Dot) with Pro Saturation',
+      'Audio Output': '80W Ultra Speakers Dolby Atmos Surround System',
+      'Hardware Engine': 'A55+A75 High-Speed Multi Engine Setup',
+      'Picture Optimizer': 'C.R.I.S.P AI Picture Engine with Real-time Optimization',
+      'Motion Enhancer': 'MEMC, ALLM, 120Hz VRR Interactive Panning Sync',
+      'Smart Assistant': 'Official Smart Google TV with Android 14 OS',
+      'Local Craftsmanship': 'Made in India'
+    },
+    isRefurbished: false,
+    rating: 4.9,
+    reviews: 615,
+    buyUrl: 'https://fktr.in/Cfas044',
+    slides: [
+      {
+        title: 'Wobble X Series 55"',
+        headline: '138.7 cm (55") Ultra HD 4K Google TV',
+        description: 'Step into a world of hyper-realistic imagery and space-vortex depth. Combines Ultra QLED precision, double engine core, and massive 80W Dolby sound.',
+        image: 'custom-wobble55-main',
+        features: ['138.7 cm (55") QLED Display', 'Official Google TV with Android 14', 'Ultra QLED Quantum Dot Colors', 'Proudly Crafted - Made in India']
+      },
+      {
+        title: 'C.R.I.S.P AI Picture Hub',
+        headline: 'A55+A75 Double Engine Compute Pipeline',
+        description: 'Harness the processing command of our dual A55+A75 chipset. Powers through complex screen elements (like deep black hole imagery) while computing 120Hz VRR & MEMC seamlessly.',
+        image: 'custom-wobble55-features',
+        features: ['C.R.I.S.P AI smart scene analysis', 'High speed double computing core', 'Ultra low response rate gaming (ALLM)', 'Spectacular high-contrast graphic display']
+      },
+      {
+        title: 'Ultra QLED Dynamic Colors',
+        headline: 'Hyper-Dynamic Split Backlight Grid Array',
+        description: 'See the absolute edge of Sunrise brightness with Pro Saturation technology. QLED maps hyper-pure reds, greens, and blues across millions of pixels dynamically.',
+        image: 'custom-wobble55-qled',
+        features: ['Precision backlight dividing grid', 'Pro Saturation ultimate coverage', '1 Billion glowing cinematic colors', 'Zero screen-flicker brightness panels']
+      },
+      {
+        title: '80W Blasting Soundwaves',
+        headline: 'Heavy Duty Dolby Atmos Acoustic Resonator',
+        description: 'Unleash audio brilliance mimicking space-shuttle ignition blasts. Features co-tuned Dolby Atmos and 80W heavyweight speaker grills for room-shaking surround depth.',
+        image: 'custom-wobble55-audio',
+        features: ['Blasting 80W dual speaker grids', 'Cosigned with Dolby Atmos soundscapes', 'Deep rocket-engine bass resonance waves', 'Intelligent clear-voice vocal tracks']
+      },
+      {
+        title: 'Chassis Engineering Profile',
+        headline: 'Ultra Slim Dual Pedestals & Side Ports Blueprint',
+        description: 'Optimized down to physical schematics. Dual side profiles with easy-access inputs and physical tripod stand elements for highly luxurious interior matching.',
+        image: 'custom-wobble55-profiles',
+        features: ['Slender twin-sided profile views', 'Easy angle back-chassis connectivity', 'Heavyweight metallic tripod stand legs', 'Perfect physical room balance footprint']
+      }
+    ]
+  },
+  {
+    id: 'samsung-55-crystal-infinity',
+    name: 'Crystal 4K Infinity Vision 138 cm (55 inch) Ultra HD (4K) LED Smart Tizen TV with 4K Upscaling | HDR 10+ | Voice Assistance Remote Control | PurColor | Slim Look | Samsung Knox Security | 100+ Free Channels | Universal Gestures (UA55UE84AFULXL)',
+    brand: 'Samsung',
+    price: 43490,
+    originalPrice: 68900,
+    image: 'custom-samsung55-main',
+    images: [
+      'custom-samsung55-main',
+      'custom-samsung55-features',
+      'custom-samsung55-side',
+      'custom-samsung55-stadium',
+      'custom-samsung55-chip'
+    ],
+    specs: {
+      'Screen Size': '138 cm (55 inch)',
+      'Resolution': 'Ultra HD 4K (3840 x 2160 Pixels)',
+      'Display Technology': 'LED Smart Tizen TV with 4K Upscaling & Universal Gestures',
+      'HDR Support': 'HDR 10+ High Dynamic Range',
+      'Smart Features': 'Voice Assistance Remote Control, 100+ Free Channels, SmartThings',
+      'Security System': 'Samsung Knox Security Certified',
+      'Sound Support': 'Object Tracking Sound Lite with 3D Surround Audio',
+      'Aesthetics': 'Slim Look Bounds Screen Design with T-Pedestal Stand'
+    },
+    isRefurbished: false,
+    rating: 4.8,
+    reviews: 724,
+    buyUrl: 'https://fktr.in/qCs7T7t',
+    slides: [
+      {
+        title: 'Crystal 4K Infinity 55"',
+        headline: '138 cm (55") Ultra HD (4K) Smart Tizen TV',
+        description: 'Experience stunning color volume with our immersive bezel-less Infinity display. Powered by Knox Security, featuring multiple voice assistants and 7 years of guaranteed free system upgrades.',
+        image: 'custom-samsung55-main',
+        features: ['138 cm (55 inch) Infinity border-less design', '7 Years guaranteed free Tizen OS upgrades', 'Integrated Samsung Knox security vault', 'Stream 100+ channels free on TV Plus']
+      },
+      {
+        title: 'Brilliant Crystal Color Depth',
+        headline: 'PurColor & HDR 10+ Deep Tone Mapping',
+        description: 'Savor every color tone exactly as originally intended. PurColor provides precision sub-pixel chromatic tuning while HDR 10+ uncovers details in both extreme dark forests and bright solar rays.',
+        image: 'custom-samsung55-features',
+        features: ['PurColor sub-pixel precision rendering', 'HDR 10+ cinematic brightness peaks', 'Wide color gamut display controller', 'Endless free content on-demand curation']
+      },
+      {
+        title: 'Boundless Slim Profile',
+        headline: 'Ultra Slim Bezel & Minimal T-Pedestal Legs',
+        description: 'The sleek, luxurious physical profile and border-less casing keep your eyes entirely locked on the immersive screen. Dual T-pedestal legs elevate stability seamlessly.',
+        image: 'custom-samsung55-side',
+        features: ['Boundless frame-less casing archetype', 'Minimalist space-maximizing T-Pedestal stands', 'Super lightweight back-panel layout', 'Universal gestures side interaction profile']
+      },
+      {
+        title: 'Immersive Arena Audio',
+        headline: 'Object Tracking Sound Lite Arena Crowd Acoustics',
+        description: 'Unleash cinema-level stadium acoustics. Object Tracking Sound Lite follows every lateral ball pass or rocket thruster sound in virtual 3D surround space.',
+        image: 'custom-samsung55-stadium',
+        features: ['Object Tracking Sound Lite virtual 3D tracks', 'Custom stadium green grass saturation maps', 'Intelligent acoustics co-tuned for action movies', 'Seamless SmartThings ecosystem integration']
+      },
+      {
+        title: 'Crystal Processor 4K Engine',
+        headline: 'AI Silicon Upscaling core compute pipeline',
+        description: 'The computational brain upscales lower resolution titles, series, and movies to crystalline near-4K UHD details by removing visual artifacts in real time.',
+        image: 'custom-samsung55-chip',
+        features: ['Next-Gen Crystal Processor 4K silicon', 'Dynamic AI resolution upscaling core compute', 'Real-time brightness & thermal protection', 'Ultra-responsive game input engine lag reducer']
+      }
+    ]
+  },
+  {
+    id: 'compaq-55-hueqx-android',
+    name: 'Compaq 140 cm (55 inch) Ultra HD (4K) LED Smart Android TV with 2 GB RAM, Dolby Audio, Bezel-less Screen,WCG+ (CQV55AX1UD)',
+    brand: 'Compaq',
+    price: 9499,
+    originalPrice: 34990,
+    image: 'custom-compaq55-main',
+    images: [
+      'custom-compaq55-main',
+      'custom-compaq55-nature',
+      'custom-compaq55-angles',
+      'custom-compaq55-sound',
+      'custom-compaq55-hdr'
+    ],
+    specs: {
+      'Screen Size': '140 cm (55 inch)',
+      'Resolution': 'Ultra HD 4K (3840 x 2160 Pixels)',
+      'Display Technology': 'LED Smart Android TV with Bezel-less Screen & WCG+ Panel',
+      'RAM & Hardware': '2 GB Ultra-responsive Operational RAM',
+      'Audio Support': 'Certified 360° Dolby Audio Spatial Sound',
+      'Viewing Angle': '178 Degree Wide Angle IPS Display Technology',
+      'Smart Service': 'Android TV Platform with Voice Assistance Remote Control',
+      'Chassis Frame': 'Ultra Boundless Minimal Bezel Profile'
+    },
+    isRefurbished: false,
+    rating: 4.7,
+    reviews: 588,
+    buyUrl: 'https://fktr.in/T2m0T3e',
+    slides: [
+      {
+        title: 'Compaq Hueq X 55"',
+        headline: '140 cm (55") Bezel-less Ultra HD (4K) Android TV',
+        description: 'Unleash your entertainment on an spectacular bezel-less boundless visual stage. Packed with 2 GB RAM, fluid Android TV services, and optimized deep colors.',
+        image: 'custom-compaq55-main',
+        features: ['Ultra spacious 140 cm (55 inch) Display', 'Fluid official Google Android TV ecosystem', 'Generous 2 GB fast memory cache processing', 'Boundless zero-bezel structural blueprint']
+      },
+      {
+        title: 'Only the Sparkle in Your Eye',
+        headline: 'WCG+ Panel Matches the Dazzle of Color',
+        description: 'Bask in premium color accuracy and deep contrast. Our Wide Color Gamut (WCG+) panel reveals rich gradients, making botanical or wildlife scenes pop off the screen.',
+        image: 'custom-compaq55-nature',
+        features: ['WCG+ Wide Color Gamut deep color depth', 'Stunning natural brightness mapping engine', 'Organic image contrast detail enhancer', 'Vibrant green and golden-bloom accuracy optimization']
+      },
+      {
+        title: 'Flawless Viewing Perspective',
+        headline: 'Experience Same Visuals From Different Angles',
+        description: 'Whether you are sitting directly head-on or on a corner couch, there is zero shift in colors or detail, thanks to the wide 178-degree viewing angles projection.',
+        image: 'custom-compaq55-angles',
+        features: ['Wide 178° consistent color viewing cone', 'Super-thin bezel integration minimizing frame noise', 'Crisp industrial skyscraper perspective representation', 'Double display spatial consistency engineering']
+      },
+      {
+        title: '360° Surround Acoustics',
+        headline: 'Immerse Yourself with Certified Dolby Audio™',
+        description: 'Bring theater-level room-filling soundscapes home. Experience multi-dimensional clarity with certified Dolby Audio, wrapping the entire room in a perfect sound-sphere.',
+        image: 'custom-compaq55-sound',
+        features: ['Certified high-clarity Dolby Audio decoder', 'Immersive 3D wrap-around acoustic sound dome', 'Deep low-end rumble structural resonance', 'Sleek wall-mounting console audio matching profile']
+      },
+      {
+        title: 'Vivid Peak Dynamic Range',
+        headline: 'HDR10 Brightest Pictures and Finest Gradients',
+        description: 'Indulge in vibrant, hyper-saturated sunsets and crystalline flying birds. HDR10 maps high velocity visual curves to bring peak highlights and shadow details to life.',
+        image: 'custom-compaq55-hdr',
+        features: ['HDR10 high-saturation burst dynamics support', 'Vibrancy acceleration color-mapping algorithms', 'Advanced noise reduction for flying bird details', 'Refinement layers for solar glares and water mirrors']
+      }
+    ]
   }
 ];

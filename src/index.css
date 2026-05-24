@@ -27,15 +27,15 @@
 
 @layer utilities {
   .glass {
-    @apply bg-white/80 backdrop-blur-md border border-gray-100;
+    @apply bg-white/80 backdrop-blur-md border border-gray-100 dark:bg-zinc-900/70 dark:border-zinc-800/80;
   }
   
   .glass-card {
-    @apply bg-white border border-gray-100 shadow-xl transition-all duration-300 rounded-2xl;
+    @apply bg-white border border-gray-100 shadow-xl transition-all duration-300 rounded-2xl dark:bg-zinc-900/60 dark:border-zinc-800/60 dark:shadow-black/20;
   }
   
   .glass-card:hover {
-    @apply shadow-cyan-100;
+    @apply shadow-cyan-100 dark:shadow-cyan-950/20;
   }
 
   .text-glow {

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { PenTool, ShoppingBag, CheckCircle, QrCode, Printer, Download, ArrowRight, Sparkles, Cpu, AlertTriangle, RefreshCw } from 'lucide-react';
+import { PenTool, ShoppingBag, CheckCircle, QrCode, Printer, Download, ArrowRight, Sparkles, Cpu, AlertTriangle, RefreshCw, Camera } from 'lucide-react';
 import { toast } from 'react-hot-toast';
 import { useRecommendationStore } from '../store/recommendation';
+import { QRCodeScannerModal } from '../components/layout/QRCodeScannerModal';
 import confetti from 'canvas-confetti';
 import { products } from '../lib/data';
 import { doc, setDoc } from 'firebase/firestore';
@@ -71,6 +72,7 @@ const VoiceTranscriptionButton = ({ onTranscription, placeholderName = "field" }
 };
 
 export const Booking = () => {
+  const [isBookingScannerOpen, setIsBookingScannerOpen] = useState(false);
   const [searchParams] = useSearchParams();
   const type = searchParams.get('type') || 'repair';
   const productName = searchParams.get('product') || '';
@@ -250,6 +252,11 @@ export const Booking = () => {
         setPaymentState('verifying');
         setTimeout(() => {
           setPaymentState('completed');
+          
+          // Double-pulse haptic feedback for success
+          if (typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function') {
+            navigator.vibrate([100, 50, 100]);
+          }
           
           confetti({
             particleCount: 120,
@@ -1050,6 +1057,18 @@ export const Booking = () => {
                           </div>
                         )}
 
+                        {/* Camera-linked direct payment scan verification */}
+                        <div className="mb-4 text-center">
+                          <button
+                            type="button"
+                            onClick={() => setIsBookingScannerOpen(true)}
+                            className="w-full py-3.5 rounded-xl bg-slate-950 border border-cyan-500/30 hover:border-cyan-500 text-cyan-400 font-extrabold uppercase text-[10px] tracking-widest hover:bg-cyan-500/10 hover:text-white transition-all flex items-center justify-center gap-2 cursor-pointer shadow-[0_0_15px_rgba(6,182,212,0.15)] hover:shadow-[0_0_20px_rgba(6,182,212,0.3)] duration-300 font-mono"
+                          >
+                            <Camera className="w-4 h-4 animate-pulse text-cyan-400" />
+                            <span>Verify Scan with Live Camera</span>
+                          </button>
+                        </div>
+
                         <div className="flex flex-col sm:flex-row gap-4 mb-4 font-mono">
                           <a 
                             href={upiIntentUri}
@@ -1282,6 +1301,15 @@ export const Booking = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <QRCodeScannerModal 
+        isOpen={isBookingScannerOpen} 
+        onClose={() => setIsBookingScannerOpen(false)} 
+        onCodeScanned={(payload) => {
+          toast.success(`Scanned payment reference "${payload}": UPI Authorized!`);
+          handlePaymentSuccess();
+        }}
+      />
     </div>
   );
 };

@@ -78,6 +78,11 @@ export const useShopStore = create<ShopState>()(
           // Log interaction
           useRecommendationStore.getState().trackEvent('add_to_cart', productId);
 
+          // Haptic feedback for mobile users
+          if (typeof navigator !== 'undefined' && typeof navigator.vibrate === 'function') {
+            navigator.vibrate(60);
+          }
+
           const existing = state.cart.find((item) => item.productId === productId);
           if (existing) {
             return {
