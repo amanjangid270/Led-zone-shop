@@ -241,5 +241,147 @@ export const products: Product[] = [
         features: ["Width: 95.8 cm Bezel Span", "Height: 57.0 cm Stand Base Height", "Screen Depth: Ultra Slim Profile Bezel"]
       }
     ]
+  },
+  {
+    id: 'wobble-32-k',
+    name: 'Wobble K Series 80 cm (32 inch) HD Ready LED Smart Google TV 2025 Edition with FSE HDR10| 30W Dolby Audio |Zero-Frame Design (WB32HDAGU2841D25)',
+    brand: 'Wobble',
+    price: 9999,
+    originalPrice: 19999,
+    image: 'custom-wobble-main',
+    images: [
+      'custom-wobble-main',
+      'custom-wobble-grid',
+      'custom-wobble-audio',
+      'custom-wobble-googletv',
+      'custom-wobble-profiles',
+      'custom-wobble-dimensions',
+      'custom-wobble-ports'
+    ],
+    specs: {
+      'Screen Size': '80 cm (32 inch)',
+      'Resolution': 'HD Ready (1366 x 768 Pixels)',
+      'Display Technology': 'LED Smart Panel with FSE HDR10',
+      'Color Core': 'Frame Stabilization Engine (FSE) Core',
+      'Audio Output': '30W Dolby Audio Super Audio Speaker Setup',
+      'Refresh Rate': '60Hz Fluid Rate Sync',
+      'Smart TV OS': 'Google TV with Android 14',
+      'Design': 'Zero-Frame Design / Borderless Silhouette',
+      'Power Efficiency Score': '91%'
+    },
+    isRefurbished: false,
+    rating: 4.8,
+    reviews: 219,
+    buyUrl: 'https://fktr.in/8zwg9p7',
+    slides: [
+      {
+        title: "Wobble K Series",
+        headline: "32\" HD Ready Google TV 2025 Edition",
+        description: "Zero-Frame borderless design featuring official Google TV OS running Android 14, 30W Dolby Super Audio system, and FSE Frame Stabilization Engine.",
+        image: "custom-wobble-main",
+        features: ["80 cm (32\") HD Ready Screen", "Google TV with Android 14", "FSE Frame Stabilization Engine", "30W Dolby Super Audio System"]
+      },
+      {
+        title: "Ultimate Visual Stack",
+        headline: "Advanced Multi-Core Display Processing",
+        description: "Powered by a robust A55 Quad Core hardware processor, FSE frame stabilization rendering, and real Dolby Audio system architecture.",
+        image: "custom-wobble-grid",
+        features: ["A55 Quad-Core Smart Processor", "Zero-Frame Structural Silhouette", "Frame Stabilization Engine (FSE)", "30W Pure Dolby Atmos Integration"]
+      },
+      {
+        title: "30W Cinematic Dolby Audio",
+        headline: "30W Super Audio Room Speaker Stack",
+        description: "Fills the room with rich multi-directional soundscapes. Authentic Dolby Audio calibration shapes low bass notes and dialog crispness safely.",
+        image: "custom-wobble-audio",
+        features: ["30W High-Velocity Sound Output", "Dolby Audio Spatial Surround Sound", "Virtual High Heights Sonar Field"]
+      },
+      {
+        title: "Android 14 Entertainment Hub",
+        headline: "More than 10,000 Apps On Google Play",
+        description: "Explore personalized homepages tailored around your viewing watchlists. Instant keys cast your favorite shows via Google ChromeCast.",
+        image: "custom-wobble-googletv",
+        features: ["Official Google TV OS (Android 14)", "Over 10,000 Pre-loaded Play Store Apps", "Personalized Profile Content Filtering"]
+      },
+      {
+        title: "Chassis & Silhouette Profiles",
+        headline: "Slim Multi-Angle Hardware Blueprint",
+        description: "Symmetric narrow bezels are complemented by solid table stand rails and structural bottom-firing space-saving sub vents.",
+        image: "custom-wobble-profiles",
+        features: ["Angled Dual Pedestal Stand Rails", "Ultra Narrow Zero Space Front Frame", "Rear Connection Port Access Points"]
+      },
+      {
+        title: "Chassis Calibration & BEE Label",
+        headline: "BEE Power Savings Guide Blueprint",
+        description: "Carefully engineered dimensions: 80cm screen with an annual energy consumption score of just 62 kWh/Year for ultra clean operations.",
+        image: "custom-wobble-dimensions",
+        features: ["Width: 71.6 cm Compact Display Frame", "Thickness: 8.61 cm ultra-slim Profile", "BEE STAR Certified Power Efficiency"]
+      },
+      {
+        title: "Multi-Port Ingress Connectivity",
+        headline: "Versatile Sound & Visual Input Matrix",
+        description: "A comprehensive digital array supporting high-fidelity HDMI, dual USB slots, Ethernet LAN portals, optical nodes, and coaxial antennas.",
+        image: "custom-wobble-ports",
+        features: ["HDMI 1.4 x3 Input Slots", "USB 2.0 x2 Media Playback Ports", "Optical Output & LAN Wire Port Access"]
+      }
+    ]
+  },
+  {
+    id: 'vw-32-a',
+    name: '80 cm (32 inch) HD Ready LED TV 2025 Edition (VW32A)',
+    brand: 'VW',
+    price: 7799,
+    originalPrice: 15999,
+    image: 'custom-vw-main',
+    images: [
+      'custom-vw-main',
+      'custom-vw-cinema',
+      'custom-vw-dimensions',
+      'custom-vw-infographic'
+    ],
+    specs: {
+      'Screen Size': '80 cm (32 inch)',
+      'Resolution': 'HD Ready (1366 x 768 Pixels)',
+      'Display Technology': 'LED True Display Panel',
+      'Brightness': '300 Dazzling Nits High Lumens',
+      'Audio Output': '20W Surround Sound Speakers Set up',
+      'Viewing Angle': '178 Degrees L-R Wide Angle Range',
+      'Refresh Rate': '60Hz Standard Sync Rate',
+      'Design': 'Edgeless Slim Silhouette Design',
+      'Power Efficiency Score': 'BEE 4-Star Energy Savings Code'
+    },
+    isRefurbished: false,
+    rating: 4.7,
+    reviews: 154,
+    buyUrl: 'https://fktr.in/SvtyiDl',
+    slides: [
+      {
+        title: "VW Pure View Series",
+        headline: "80 cm (32\") HD Ready LED TV 2025 Edition",
+        description: "Edge-to-edge frameless screen focus utilizing the PURE VIEW technology panel, 20W Surround Sound Speakers and 300 Dazzling Nits brightness.",
+        image: "custom-vw-main",
+        features: ["80 cm (32\") HD Ready Panel Screen", "True Display Vibrant Colors Gamut", "300 Dazzling Nits Peak Brightness", "Edgeless Frameless Bezel Trim"]
+      },
+      {
+        title: "Cinema Zoom Processor",
+        headline: "Advanced Aspect Ratio & Film View Modes",
+        description: "Intuitively scales standard viewports into cinema mode to avoid cropped black bars. Keeps pixels crisp and vibrant dynamically.",
+        image: "custom-vw-cinema",
+        features: ["Cinema Zoom Scaling Engine", "Real Cinema Theatre Calibration", "Dual Feed Aspect Selection Mode"]
+      },
+      {
+        title: "Precision Dimensions",
+        headline: "Sleek Cabinet Contour CAD Architectures",
+        description: "Designed to fit elegantly as a table accent or secure wall-mount. Ultra-light design with stable pedestal support feet included.",
+        image: "custom-vw-dimensions",
+        features: ["Width: 73.0 cm Panel Span", "Height: 43.0 cm display bracket", "Cabinet Depth: Sleek 16.0 cm space"]
+      },
+      {
+        title: "Pure View Quality Specs",
+        headline: "Complete Vivid Prism Audio-Visual Array",
+        description: "Packed with dual-core stabilization, immersive surround stereos, 178 degrees viewing spectrums and premium BEE star certifications.",
+        image: "custom-vw-infographic",
+        features: ["20W Soundwave Surround Acoustics", "178 Degrees Wide View Angles L-R", "300 Nits Balanced White Points", "BEE 4-Star High Power-Saving Ratio"]
+      }
+    ]
   }
 ];

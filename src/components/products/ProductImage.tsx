@@ -1487,6 +1487,761 @@ export const ProductImage: React.FC<ProductImageProps> = ({ src, alt, className 
         </div>
       );
 
+    case 'custom-wobble-main':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#030303] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          {/* Vibrant Red Neon Backlight */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-red-600/30 via-red-950/10 to-transparent blur-[40px] pointer-events-none" />
+          <MeshGrid />
+
+          {/* Core TV Bezel Screen display inside border */}
+          <div className="absolute inset-1 bg-[#d91d1d]/90 m-1 rounded-lg overflow-hidden flex flex-col justify-between p-4 flex-1">
+            {/* Artistic Backdrop Wave with model / visual elements */}
+            <div className="absolute inset-0 bg-radial-gradient from-red-500 via-red-700 to-red-950 flex items-center justify-between pointer-events-none">
+              <div className="absolute inset-0 opacity-15">
+                <svg className="w-full h-full stroke-white" viewBox="0 0 320 180" fill="none">
+                  <path d="M 0 90 Q 80 40 160 90 T 320 90" strokeWidth="1" />
+                  <path d="M 0 110 Q 80 60 160 110 T 320 110" strokeWidth="0.5" strokeDasharray="3 3" />
+                </svg>
+              </div>
+
+              {/* Vector representation of model portrait styled as a futuristic agent with sunglasses */}
+              <div className="absolute inset-y-0 right-4 w-44 flex items-center justify-center opacity-90">
+                <svg className="w-full h-full text-zinc-900 fill-current" viewBox="0 0 100 100">
+                  {/* Cyber Agent Head Silhouette */}
+                  <path d="M 40 40 C 40 10, 80 10, 80 40 C 80 55, 75 75, 45 80 C 42 70, 41 60, 40 40 Z" fill="#000" />
+                  {/* Bob haircut outline */}
+                  <path d="M 33 40 C 33 5, 87 5, 87 40 C 87 45, 85 55, 80 65 C 75 55, 78 40, 75 42 L 50 42 C 45 40, 42 45, 33 40 Z" fill="#090d16" />
+                  {/* Cyber glasses/visor */}
+                  <polygon points="35,32 75,32 72,48 42,48" fill="#06b6d4" className="opacity-80 animate-pulse" />
+                  <polygon points="37,34 73,34 71,46 44,46" fill="#020617" />
+                  {/* High collar neck coat */}
+                  <path d="M 45 80 C 47 70, 73 70, 75 80 L 80 100 L 40 100 Z" fill="#020617" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Top Bar inside active OLED display screen */}
+            <div className="flex justify-between items-start z-10 w-full col-span-12">
+              {/* Bold 32 HD Logo Red Tagging badge */}
+              <div className="bg-black/85 backdrop-blur-md px-3 py-1.5 rounded-xl border border-zinc-805 shadow-md flex flex-col items-start text-left">
+                <span className="text-xl md:text-2xl font-black tracking-tighter text-white font-sans leading-none">32 HD</span>
+                <span className="text-[5.5px] font-bold text-[#06b6d4] uppercase tracking-widest font-mono mt-0.5">Google TV with Android 14</span>
+              </div>
+
+              {/* Brand logo: wobble in distinctive font */}
+              <div className="flex flex-col items-end text-right">
+                <span className="text-2xl font-black font-sans leading-none tracking-tighter text-white italic">wobble</span>
+                <span className="text-[6.5px] font-black uppercase text-white/80 font-mono tracking-widest mt-1">2025 Flagship Edition</span>
+              </div>
+            </div>
+
+            {/* Display Center Spec pills on the Left */}
+            <div className="flex flex-col justify-end space-y-1.5 max-w-[150px] text-left z-10 mt-auto ml-1">
+              <div className="flex items-center space-x-1.5 bg-black/80 backdrop-blur-md rounded-lg py-1 px-2 border border-white/5 shadow">
+                <span className="text-[6.5px] font-black text-rose-500 font-sans leading-none">[ FSE ]</span>
+                <span className="text-[6.5px] text-zinc-200 font-mono font-bold uppercase leading-none">Frame Stabilization Engine</span>
+              </div>
+              <div className="flex items-center space-x-1.5 bg-black/80 backdrop-blur-md rounded-lg py-1 px-2 border border-white/5 shadow">
+                <span className="text-[7px] text-yellow-400">⚡</span>
+                <span className="text-[6.5px] text-zinc-200 font-mono font-bold uppercase leading-none">30W Super Audio Speakers</span>
+              </div>
+              <div className="flex items-center space-x-1.5 bg-[#06b6d4] text-black rounded-lg py-1 px-2 border border-cyan-400/30 shadow">
+                <span className="text-[6.5px] font-mono font-black uppercase tracking-wider leading-none">ZERO FRAME DESIGN</span>
+              </div>
+            </div>
+
+            {/* Solid localized stamps label: "MADE IN INDIA" */}
+            <div className="absolute bottom-4 right-4 z-10 flex flex-col items-end text-right bg-black/60 px-2.5 py-1 rounded">
+              <span className="text-[5px] font-bold text-zinc-400 uppercase tracking-widest leading-none font-mono">Manufacture Hub</span>
+              <span className="text-[8px] font-extrabold text-white uppercase tracking-wider mt-0.5 font-sans">MADE IN INDIA</span>
+            </div>
+          </div>
+
+          {/* Pedestal feet support pins */}
+          <div className="absolute bottom-0 left-[18%] w-1.5 h-1.5 bg-gradient-to-t from-zinc-950 to-zinc-650 transform skew-x-[-15deg]" />
+          <div className="absolute bottom-0 right-[18%] w-1.5 h-1.5 bg-gradient-to-t from-zinc-950 to-zinc-650 transform skew-x-[15deg]" />
+        </div>
+      );
+
+    case 'custom-wobble-grid':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-zinc-950 text-white rounded-2xl overflow-hidden flex flex-col justify-between p-3 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Zero Frame Design grid layout */}
+          <div className="grid grid-cols-12 gap-1.5 h-full w-full z-10 p-1">
+            {/* Top Left: Bezel Info */}
+            <div className="col-span-4 bg-zinc-900/65 border border-zinc-800 rounded-lg p-1.5 flex flex-col justify-between text-left">
+              <span className="text-[7px] font-mono font-black text-cyan-400 uppercase tracking-widest leading-none">Bezel Outline</span>
+              <div className="text-[9px] font-black uppercase text-white font-sans mt-0.5">ZERO FRAME DESIGN</div>
+              <div className="w-full h-3 border border-dashed border-zinc-650 mt-1 relative">
+                <div className="absolute inset-0 bg-cyan-500/10 animate-pulse" />
+              </div>
+            </div>
+
+            {/* Top Right: FSE chip */}
+            <div className="col-span-8 bg-zinc-900/65 border border-zinc-800 rounded-lg p-1.5 flex flex-col justify-between text-left">
+              <div className="flex justify-between items-center w-full">
+                <span className="text-[7px] font-mono font-black text-yellow-500 uppercase tracking-widest leading-none">ENGINE COR</span>
+                <span className="bg-yellow-500 text-black text-[5.5px] px-1 py-0.2 rounded font-mono font-black">FSE</span>
+              </div>
+              <div className="text-[9px] font-black uppercase text-white font-sans mt-0.5">Frame Stabilization Engine</div>
+              <span className="text-[5.5px] text-zinc-400 font-mono">Dynamic motion stabilization & HDR15 depth processing.</span>
+            </div>
+
+            {/* Center Box: Complete snowy mountain cinematic landscape */}
+            <div className="col-span-12 bg-black border border-zinc-850 h-13 rounded-lg overflow-hidden relative p-[1px] shadow-lg flex items-center justify-center">
+              {/* Dynamic Mountain Range landscape wireframe */}
+              <div className="absolute inset-0 bg-gradient-to-t from-sky-900/35 to-indigo-950/20" />
+              <svg className="absolute inset-x-0 bottom-0 top-1 w-full h-full fill-none" viewBox="0 0 300 50">
+                {/* Silhouette mountains */}
+                <polygon points="10,50 60,15 110,50" fill="#0c4a6e" className="opacity-20" />
+                <polygon points="80,50 140,8 200,50" fill="#0369a1" className="opacity-35" />
+                <polygon points="160,50 210,18 260,50" fill="#0284c7" className="opacity-25" />
+                {/* Snowy mountain range line */}
+                <path d="M 0 45 L 30 38 L 60 15 L 75 30 L 140 8 L 175 35 L 210 18 L 245 42 L 300 45" stroke="#38bdf8" strokeWidth="1" />
+                <text x="150" y="44" className="text-[6px] font-black font-sans fill-white tracking-widest uppercase text-center" textAnchor="middle">wobble 32" CINEMATIC</text>
+              </svg>
+            </div>
+
+            {/* Bottom Row: Dolby Left + Subwoofer Audio Output */}
+            <div className="col-span-5 bg-zinc-900/65 border border-zinc-800 rounded-lg p-1.5 flex flex-col justify-between text-left">
+              <span className="text-[7.5px] font-mono font-black text-violet-400 uppercase tracking-widest leading-none">CODEL CALIB</span>
+              <div className="text-[9px] font-black uppercase text-white font-sans mt-0.5">DOLBY AUDIO</div>
+              <span className="text-[5px] text-zinc-400 font-mono">Premium digital dual-channel matrix decoder.</span>
+            </div>
+
+            {/* Bottom Speaker: 30W Super Audio output logo */}
+            <div className="col-span-7 bg-zinc-900/65 border border-zinc-800 rounded-lg p-1.5 flex flex-col justify-between text-left">
+              <div className="flex justify-between items-center w-full">
+                <span className="text-[7px] font-mono font-black text-emerald-400 uppercase tracking-widest leading-none">SOUND DEPTH</span>
+                <span className="text-[9px] font-mono font-black text-emerald-400">30W</span>
+              </div>
+              <div className="text-[9px] font-black uppercase text-white font-sans mt-0.5">30W SUPER AUDIO SPEAKER</div>
+              <span className="text-[5.5px] text-zinc-400 font-mono">Double high-velocity voice-coil audio array.</span>
+            </div>
+          </div>
+        </div>
+      );
+
+    case 'custom-wobble-audio':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#040406] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Large text banners overlay */}
+          <div className="text-center w-full z-10 pt-2">
+            <h2 className="text-sm md:text-md font-black tracking-widest text-[#06b6d4] uppercase font-sans leading-none">
+              Dolby Audio | 30W SUPER AUDIO
+            </h2>
+            <p className="text-[5.5px] md:text-[6.5px] text-zinc-400 font-extrabold uppercase tracking-[0.2em] font-mono mt-1.5">
+              30W HIGH VELOCITY DUAL SPEAKER ARR
+            </p>
+          </div>
+
+          {/* Home theater room surround setup display illustration */}
+          <div className="relative w-full h-24 flex items-center justify-center z-10">
+            {/* Ambient sound ray rings stretching outwards from bottom center speakers */}
+            <svg className="absolute inset-0 w-full h-full fill-none animate-pulse" viewBox="0 0 320 96">
+              {/* Symmetrical expanding circle ripples */}
+              <ellipse cx="160" cy="85" rx="50" ry="25" stroke="#0ea5e9" strokeWidth="0.6" strokeDasharray="3 3" />
+              <ellipse cx="160" cy="85" rx="95" ry="42" stroke="#22d3ee" strokeWidth="0.5" />
+              <ellipse cx="160" cy="85" rx="145" ry="60" stroke="#06b6d4" strokeWidth="0.4" />
+              <ellipse cx="160" cy="85" rx="195" ry="80" stroke="#0891b2" strokeWidth="0.3" className="opacity-90 animate-ping" />
+
+              {/* Minimal Couch representation in center of sound fields */}
+              <rect x="135" y="70" width="50" height="15" rx="1.5" fill="#1c1917" stroke="#444" strokeWidth="0.5" />
+              <rect x="142" y="65" width="36" height="5" rx="1" fill="#1c1917" />
+              {/* Virtual audience heads */}
+              <circle cx="148" cy="58" r="3" fill="#888" />
+              <circle cx="172" cy="58" r="3" fill="#888" />
+
+              {/* Front Television outline panel block */}
+              <rect x="125" y="10" width="70" height="35" rx="2" fill="black" stroke="#22c55e" strokeWidth="1" />
+              <line x1="150" y1="45" x2="150" y2="48" stroke="#22c55e" strokeWidth="1" />
+              <line x1="140" y1="48" x2="180" y2="48" stroke="#22c55e" strokeWidth="1" />
+              <text x="160" y="28" className="text-[5.5px] font-sans fill-zinc-100 font-black text-center" textAnchor="middle">wobble 30W TV</text>
+            </svg>
+          </div>
+
+          {/* Bottom decorative bar */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full mt-auto">
+            <span>SOUND WAVE RESPONSE RANGE: 30HZ-20KHZ</span>
+            <span>SPEC DECODER MODE: DOLBY PRO LOGIC STACK</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-wobble-googletv':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-zinc-950 text-white rounded-2xl overflow-hidden flex flex-col justify-between p-3 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Header OS signature line branding */}
+          <div className="flex justify-between items-center px-3.5 py-1 z-10 bg-zinc-950 border-b border-zinc-900 w-full mb-1">
+            <div className="flex items-center space-x-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-red-500" />
+              <span className="w-1.5 h-1.5 rounded-full bg-yellow-400" />
+              <span className="w-1.5 h-1.5 rounded-full bg-green-500" />
+              <span className="text-[10px] font-black text-white font-sans uppercase">Google TV</span>
+            </div>
+            <span className="text-[6.5px] font-mono font-black text-zinc-400 bg-zinc-900 border border-zinc-800 rounded px-1.5 py-0.2">Android 14 OS</span>
+          </div>
+
+          {/* Google TV UI simulation elements */}
+          <div className="flex-grow m-1.5 bg-[#0a0a0c] border border-zinc-900 rounded-xl p-2.5 flex flex-col justify-between z-10 shadow-inner">
+            {/* Navigation Tabs bar inside UI */}
+            <div className="flex justify-between items-center border-b border-zinc-900/60 pb-1 w-full shrink-0">
+              <div className="flex space-x-2 text-[6px] font-bold text-zinc-350 uppercase tracking-wider">
+                <span className="text-white border-b-2 border-cyan-400 select-all font-black">For you</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Movies</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Shows</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Apps</span>
+                <span className="hover:text-white transition-colors cursor-pointer">Library</span>
+              </div>
+              <span className="text-[6.5px] font-mono text-cyan-400 font-extrabold flex items-center">🔍 SEARCH</span>
+            </div>
+
+            {/* Simulated Hero image movie cover slider */}
+            <div className="flex-grow flex items-center justify-between gap-2.5 mt-1.5">
+              <div className="flex-1 flex flex-col text-left justify-center space-y-1">
+                <span className="text-[10px] font-black text-white leading-none font-sans uppercase">Doctor Strange in the Multiverse</span>
+                <span className="text-[5px] text-zinc-400 font-medium">Explore alternative realities on your watchlists.</span>
+                <div className="flex gap-1.5">
+                  <span className="bg-[#06b6d4] text-black text-[5px] px-1.5 py-0.2 rounded font-black uppercase">Play Movie</span>
+                  <span className="bg-zinc-800 text-white text-[5px] px-1.5 py-0.2 rounded font-black border border-zinc-700 uppercase">Save List</span>
+                </div>
+              </div>
+
+              {/* Poster thumbnail graphic */}
+              <div className="w-[85px] h-[45px] rounded-lg border border-red-500/20 bg-gradient-to-tr from-rose-950/25 to-zinc-900 relative overflow-hidden shrink-0 shadow flex items-center justify-center">
+                <div className="absolute inset-0 bg-gradient-to-t from-red-600/30 to-indigo-900/10" />
+                <circle cx="42" cy="22" r="10" stroke="#f43f5e" strokeWidth="0.8" className="animate-pulse" />
+                <span className="text-[5.5px] font-bold text-white uppercase font-sans tracking-wide z-10 text-center">DOCTOR STRANGE</span>
+              </div>
+            </div>
+
+            {/* Bottom shelf with total apps counts labels */}
+            <div className="mt-1.5 flex justify-between items-center pt-1 border-t border-zinc-900/60 shrink-0 w-full">
+              <span className="text-[5.5px] font-bold text-zinc-400 uppercase tracking-widest font-mono">10,000+ Apps Ready</span>
+              <div className="flex space-x-1 select-none">
+                {['▶', '🎬', '⭐', '✓', '🎨', 'O'].map((app, i) => (
+                  <span key={i} className="w-2.5 h-2.5 rounded bg-zinc-900 border border-zinc-850 flex items-center justify-center text-[4px] font-bold">{app}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom metadata tags */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full">
+            <span>CHROMECAST BUILT-IN CHIP ENAB</span>
+            <span>GOOGLE CAST LICENSED CORE ENGINE</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-wobble-profiles':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#060608] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Header model description info */}
+          <div className="text-center pt-1.5 z-10">
+            <span className="text-[7.5px] font-mono font-black text-rose-500 uppercase tracking-widest leading-none">Chassis Profiles Blueprints</span>
+            <h2 className="text-xs md:text-sm font-black tracking-widest text-[#FFF] uppercase font-sans mt-0.5">
+              SLIM SILHOUETTE DESIGN WOBBLE
+            </h2>
+          </div>
+
+          {/* Isometric three views: side profiles and pedestal feet blueprint views */}
+          <div className="flex-1 flex items-center justify-around h-24 my-1 z-10 px-4">
+            {/* View A: Left profile view */}
+            <div className="flex flex-col items-center space-y-1">
+              <span className="text-[5.5px] font-mono font-bold text-zinc-400 uppercase">Left Profile</span>
+              <svg className="w-11 h-20 text-zinc-500 fill-none" viewBox="0 0 30 60">
+                {/* Slim Side Bezel Silhouette */}
+                <rect x="13" y="10" width="4" height="40" rx="0.5" fill="#1c1917" stroke="#06b6d4" strokeWidth="0.8" />
+                <rect x="11" y="24" width="2" height="12" rx="0.2" fill="#000" />
+                {/* Base pedestal support pins */}
+                <path d="M 15 50 L 5 57 L 25 57 Z" fill="#222" stroke="#555" strokeWidth="0.5" />
+              </svg>
+            </div>
+
+            {/* View B: Bottom view schematic */}
+            <div className="flex flex-col items-center space-y-1">
+              <span className="text-[5.5px] font-mono font-bold text-zinc-400 uppercase">Bottom View</span>
+              <svg className="w-24 h-11 text-zinc-500 fill-none" viewBox="0 0 100 40">
+                {/* Horizontal long bar */}
+                <rect x="10" y="15" width="80" height="8" rx="1" fill="#111" stroke="#22d3ee" strokeWidth="0.8" />
+                {/* Sound grille slats bottom firing */}
+                <line x1="16" y1="19" x2="32" y2="19" stroke="#444" strokeWidth="1.5" strokeDasharray="1 1" />
+                <line x1="68" y1="19" x2="84" y2="19" stroke="#444" strokeWidth="1.5" strokeDasharray="1 1" />
+                {/* Dual support stands bottom profiles */}
+                <rect x="22" y="23" width="4" height="5" fill="#444" />
+                <rect x="74" y="23" width="4" height="5" fill="#444" />
+              </svg>
+            </div>
+
+            {/* View C: Right profile view */}
+            <div className="flex flex-col items-center space-y-1">
+              <span className="text-[5.5px] font-mono font-bold text-zinc-400 uppercase">Right Profile</span>
+              <svg className="w-11 h-20 text-zinc-500 fill-none" viewBox="0 0 30 60">
+                {/* Same as left profile flipped or mirroring */}
+                <rect x="13" y="10" width="4" height="40" rx="0.5" fill="#1c1917" stroke="#06b6d4" strokeWidth="0.8" />
+                <rect x="17" y="22" width="2" height="14" rx="0.2" fill="#000" />
+                <path d="M 15 50 L 5 57 L 25 57 Z" fill="#222" stroke="#555" strokeWidth="0.5" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Bottom status CAD limits */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-905 z-10 w-full mt-auto">
+            <span>BLUEPRINT DESIGN REFRENCED CODE: WB-BEZ-SLIM</span>
+            <span>CHASSIS TYPE: ULTRALIGHT SLIM CONTOUR</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-wobble-dimensions':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#06060a] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-3 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Main Layout containing dual columns: Screen Specs CAD display and Star Rating label */}
+          <div className="grid grid-cols-12 gap-2 flex-grow h-28 mt-2.5 z-10 items-stretch px-1">
+            {/* Screen layout blueprints: Column Left */}
+            <div className="col-span-8 bg-black/60 border border-zinc-850 rounded-xl p-2.5 relative flex flex-col justify-between shadow-sm">
+              <span className="text-[6px] font-mono font-black text-cyan-400 uppercase tracking-widest leading-none">Screen Measurements</span>
+              
+              <div className="relative flex-grow flex items-center justify-center p-1 mt-1.5">
+                {/* Screen Outline block */}
+                <div className="w-32 h-16 border-[1.5px] border-zinc-700 bg-zinc-950/70 rounded relative flex items-center justify-center shadow-lg overflow-hidden">
+                  <svg className="absolute inset-0 w-full h-full stroke-zinc-500/15 fill-none" viewBox="0 0 128 64">
+                    {/* Diagonal Screen Arrow line */}
+                    <line x1="6" y1="58" x2="122" y2="6" stroke="#06b6d4" strokeWidth="1" strokeDasharray="2 2" />
+                    <text x="64" y="32" className="text-[6.5px] font-mono fill-zinc-200 font-extrabold stroke-none text-center" textAnchor="middle">
+                      32 inch / 80.01 cm
+                    </text>
+                  </svg>
+                </div>
+
+                {/* Left/Right arrow margins */}
+                <div className="absolute left-1 flex flex-col items-center justify-center text-[4.5px] font-mono text-zinc-400">
+                  <span className="scale-[0.8]">42.6cm</span>
+                </div>
+                <div className="absolute top-0 right-14 text-[4.5px] font-mono text-zinc-400">
+                  <span className="scale-[0.8]">71.6 cm Width</span>
+                </div>
+              </div>
+
+              <div className="flex justify-between text-[4.5px] md:text-[5.5px] font-mono text-zinc-400 uppercase border-t border-zinc-900 pt-1 mt-1.5">
+                <span>Thickness: 8.6cm</span>
+                <span>Stand Height: 48.7cm</span>
+              </div>
+            </div>
+
+            {/* BEE Star Rating Label replication: Column Right */}
+            <div className="col-span-4 bg-white text-black p-2 rounded-xl border border-zinc-200 relative flex flex-col justify-between shadow">
+              {/* Header Star title */}
+              <div className="text-center bg-green-700 text-white rounded text-[5px] font-sans font-black uppercase py-0.5 tracking-wide leading-none select-none">
+                SAVINGS GUIDE
+              </div>
+
+              {/* Star array displaying 1 star */}
+              <div className="flex justify-center space-x-0.5 my-1 text-[7px] text-zinc-300">
+                <span className="text-red-500 animate-pulse">★</span>
+                <span>☆</span>
+                <span>☆</span>
+                <span>☆</span>
+                <span>☆</span>
+              </div>
+
+              {/* Annual Energy consumption score */}
+              <div className="text-center bg-zinc-50 border border-zinc-200 rounded p-1">
+                <div className="text-[10px] font-black font-mono leading-none text-zinc-900">62*</div>
+                <div className="text-[4px] font-extrabold text-zinc-500 uppercase tracking-tighter mt-0.5 font-mono">kWh/Year Year</div>
+              </div>
+
+              {/* Star Rating details */}
+              <div className="text-[4px] font-extrabold text-zinc-650 font-mono text-center leading-tight">
+                Model: WB32K <br />
+                Label: 2025
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom status boundary */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full mt-auto">
+            <span>BEE ELECTRIC STAR REGISTER: WOBBLE-32K-ENERGY</span>
+            <span>STANDARD WEIGHT MEASURE: 3.8 KG WITH LEG RA</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-wobble-ports':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#050505] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-3 border border-zinc-900 shadow-2xl select-none ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Symmetrical Left/Right Split layout */}
+          <div className="grid grid-cols-12 gap-2 flex-grow h-28 mt-2 z-10 items-stretch px-1">
+            {/* Sidebar Columns of actual port descriptions */}
+            <div className="col-span-4 bg-zinc-950/70 border-r border-zinc-900 p-2 flex flex-col justify-between text-left">
+              <div>
+                <span className="text-[7.5px] font-mono font-black text-amber-500 uppercase tracking-widest leading-none">Port Matrix</span>
+                <h3 className="text-sm font-black uppercase text-white font-sans mt-0.5 leading-none">MULTI PORTS</h3>
+              </div>
+              <p className="text-[5.5px] text-zinc-400 font-mono leading-relaxed pb-1 leading-normal">
+                Symmetric integration layout gives dual HDMI slot and cable connection matrix accessibility.
+              </p>
+            </div>
+
+            {/* List with rich vector styled ports schemas */}
+            <div className="col-span-8 p-1 flex flex-col justify-around divide-y divide-zinc-900">
+              {[
+                { name: 'HDMI 1.4 x3 Ports', desc: 'Secure high definition streams', icon: '◰' },
+                { name: 'USB 2.0 x2 Media slots', desc: 'Local video/audio disk playback', icon: '▮' },
+                { name: 'LAN PORT / Ethernet Wire', desc: 'Direct stable internet sync up to 100Mbps', icon: '◳' },
+                { name: 'Optic Node & AV IN ports', desc: 'Sound bar outputs integration spec', icon: '⚙' }
+              ].map((port, idx) => (
+                <div key={idx} className="flex items-center justify-between py-1 first:pt-0 last:pb-0">
+                  <div className="flex items-center space-x-2 text-left">
+                    <span className="text-cyan-400 font-mono text-[9px] font-black">{port.icon}</span>
+                    <div className="flex flex-col">
+                      <span className="text-[7.5px] font-black text-white leading-tight font-sans uppercase">{port.name}</span>
+                      <span className="text-[5.5px] text-zinc-400 font-mono leading-none mt-0.5">{port.desc}</span>
+                    </div>
+                  </div>
+                  <span className="text-[5px] font-mono font-bold text-zinc-500 uppercase">Secure Core</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Bottom status regulatory labels */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full mt-auto">
+            <span>INPUT CONNECTIONS MATR_PORT_SPEC_CO</span>
+            <span>LICENSED CHASSIS INGRESS PORTS VALUE: VERIFIED</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-vw-main':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#000] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-900 shadow-2xl select-none  cursor-pointer ${className}`}
+        >
+          {/* Backlight / Ambient blur */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-amber-600/20 via-pink-600/10 to-transparent blur-[40px] pointer-events-none" />
+          <MeshGrid />
+
+          {/* Active Screen Display (inner area inside thin border) */}
+          <div className="absolute inset-1 bg-black m-1 rounded-lg overflow-hidden flex flex-col justify-between p-3.5 flex-1 border border-zinc-800">
+            {/* Colorful Visio World flow gradient artwork background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-[#120f26] via-[#2d113a] to-[#40121a] flex items-center justify-between pointer-events-none">
+              {/* Complex color waves with smooth colorful blend shapes */}
+              <div className="absolute inset-0 opacity-80 mix-blend-screen">
+                <svg className="w-full h-full" viewBox="0 0 320 180" fill="none">
+                  <path d="M-50,90 Q50,-40 180,90 T400,90 L400,200 L-50,200 Z" fill="url(#vw-wave-gold)" opacity="0.6"/>
+                  <path d="M-20,110 Q80,20 220,110 T450,110 L450,200 L-20,200 Z" fill="url(#vw-wave-rainbow)" opacity="0.45"/>
+                  <path d="M-80,60 Q120,160 280,60 T600,60 L600,200 L-80,200 Z" fill="url(#vw-wave-cyan)" opacity="0.3"/>
+                  <defs>
+                    <linearGradient id="vw-wave-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#f59e0b"/>
+                      <stop offset="50%" stopColor="#ef4444"/>
+                      <stop offset="100%" stopColor="#ec4899"/>
+                    </linearGradient>
+                    <linearGradient id="vw-wave-rainbow" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#10b981"/>
+                      <stop offset="40%" stopColor="#3b82f6"/>
+                      <stop offset="80%" stopColor="#8b5cf6"/>
+                      <stop offset="100%" stopColor="#ec4899"/>
+                    </linearGradient>
+                    <linearGradient id="vw-wave-cyan" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#06b6d4"/>
+                      <stop offset="100%" stopColor="#3b82f6"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+            </div>
+
+            {/* Content Overlays */}
+            <div className="flex justify-between items-start z-10 w-full col-span-12">
+              {/* Pure View Series Badge (Classic VW Style but updated for 32" model / high contrast) */}
+              <div className="bg-white/95 text-black p-2 rounded-xl border border-white/20 shadow-lg flex flex-col items-start text-left max-w-[110px]">
+                <span className="text-2xl font-black tracking-tighter font-sans leading-none text-zinc-950">32</span>
+                <span className="text-[5px] font-black text-rose-600 uppercase tracking-widest font-mono mt-0.5 leading-none">PURE VIEW Series</span>
+              </div>
+
+              {/* Brand Logo "vw VISIO WORLD" */}
+              <div className="flex flex-col items-end text-right">
+                <div className="flex items-center space-x-1">
+                  {/* Custom twin line V-W logo vector symbol */}
+                  <svg className="w-9 h-6 text-white" viewBox="0 0 40 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M 4,6 L 12,20 L 20,8 L 28,20 L 36,6" />
+                  </svg>
+                </div>
+                <span className="text-[5.5px] font-extrabold uppercase text-white/90 font-mono tracking-widest mt-0.5">VISIO WORLD</span>
+              </div>
+            </div>
+
+            {/* Sidebar with specifications listed (VW Style) on Left */}
+            <div className="flex flex-col space-y-1 max-w-[130px] text-left z-10 mt-auto ml-1">
+              <div className="bg-black/75 backdrop-blur-md rounded-lg py-1 px-1.8 border border-white/10 flex flex-col space-y-0.5">
+                <span className="text-[5.5px] font-mono font-black text-[#f59e0b] leading-none">■ EDGELESS DESIGN</span>
+                <span className="text-[5.5px] font-mono font-black text-zinc-350 leading-none">■ True Display Panel</span>
+                <span className="text-[5.5px] font-mono font-black text-zinc-350 leading-none">■ 20W Surround Audio Output</span>
+                <span className="text-[5.5px] font-mono font-black text-zinc-350 leading-none">■ 300 Dazzling Nits Brightness</span>
+              </div>
+            </div>
+
+            {/* BEE Power Savings Guide Badge on Bottom Right */}
+            <div className="absolute bottom-4 right-4 z-10 flex items-stretch bg-white text-black p-1 rounded-lg border border-zinc-200 shadow-lg select-none max-w-[100px]">
+              <div className="flex flex-col justify-between px-1 border-r border-zinc-250">
+                <div className="flex space-x-0.2 text-[4.5px] text-red-500 font-bold">
+                  <span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>
+                </div>
+                <span className="text-[3.5px] font-extrabold text-green-700 uppercase leading-none font-mono mt-0.5">POWER SAVINGS</span>
+              </div>
+              <div className="flex flex-col justify-center px-1 text-right">
+                <span className="text-[8px] font-black text-zinc-900 leading-none font-mono">27.0*</span>
+                <span className="text-[3.5px] font-bold text-zinc-500 uppercase tracking-tighter leading-none mt-0.5">kWh/Year</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Table stand feet */}
+          <div className="absolute bottom-0 left-[22%] w-2 h-2.5 bg-gradient-to-t from-zinc-950 to-zinc-700 transform skew-x-[-20deg]" />
+          <div className="absolute bottom-0 right-[22%] w-2 h-2.5 bg-gradient-to-t from-zinc-950 to-zinc-700 transform skew-x-[20deg]" />
+        </div>
+      );
+
+    case 'custom-vw-cinema':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#0a0f18] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-4 border border-zinc-900 shadow-2xl select-none cursor-pointer ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Heading with elegant Cinema Zoom Filmstrip Banner */}
+          <div className="text-center w-full z-10 pt-1">
+            <div className="inline-flex flex-col items-center">
+              {/* Filmstrip dashes border top */}
+              <div className="text-[5px] font-mono tracking-[0.25em] text-amber-500/80 leading-none">
+                ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■
+              </div>
+              <h2 className="text-sm md:text-md font-black tracking-[0.15em] text-white uppercase font-sans py-1 leading-none">
+                CINEMA <span className="text-amber-400">ZOOM</span>
+              </h2>
+              {/* Filmstrip dashes border bottom */}
+              <div className="text-[5px] font-mono tracking-[0.25em] text-amber-500/80 leading-none">
+                ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■ ■
+              </div>
+            </div>
+          </div>
+
+          {/* Double display visualizer side by side */}
+          <div className="flex-1 flex gap-4 items-center justify-center z-10 p-2">
+            {/* Display Left: Normal Feed */}
+            <div className="flex-1 flex flex-col space-y-1 items-center">
+              <span className="text-[6.5px] font-mono font-bold text-zinc-400 uppercase">Normal Mode (Standard Aspect)</span>
+              <div className="w-full aspect-[16/9] bg-black rounded-lg border border-zinc-800 p-0.5 relative overflow-hidden flex items-center justify-center shadow-lg">
+                <div className="absolute inset-x-0 inset-y-1 bg-zinc-950 flex items-center justify-center">
+                  <span className="text-[5px] text-zinc-650 tracking-[0.15em] absolute top-1 uppercase font-mono">16:9 Aspect Limit</span>
+                  {/* Landscape vector visual */}
+                  <svg className="w-16 h-10 stroke-zinc-500 fill-none" viewBox="0 0 80 45">
+                    <polygon points="5,45 35,15 65,45" fill="#1e293b" stroke="#475569" strokeWidth="0.5" />
+                    <circle cx="55" cy="20" r="4" stroke="#e2e8f0" strokeWidth="0.5" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Display Right: Cinema Zoom active */}
+            <div className="flex-1 flex flex-col space-y-1 items-center">
+              <span className="text-[6.5px] font-mono font-bold text-amber-400 uppercase">Cinema Zoom Mode</span>
+              <div className="w-full aspect-[16/9] bg-black rounded-lg border border-amber-500 p-0.5 relative overflow-hidden flex items-center justify-center shadow-lg shadow-amber-500/10">
+                {/* Visual zoomed in with vibrant glowing colors */}
+                <div className="absolute inset-0 bg-gradient-to-t from-amber-600/20 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-0 bg-zinc-900 flex items-center justify-center scale-125">
+                  <svg className="w-16 h-10 stroke-amber-400 fill-none" viewBox="0 0 80 45">
+                    <polygon points="5,45 35,15 65,45" fill="#3b2b1d" stroke="#f59e0b" strokeWidth="0.8" />
+                    <circle cx="55" cy="20" r="4" stroke="#fbbf24" strokeWidth="0.8" />
+                  </svg>
+                </div>
+                <div className="absolute inset-x-0 bottom-0.5 bg-black/85 text-[5px] py-0.5 font-sans font-black text-white tracking-widest text-center z-10">
+                  AUTO VIEWPORT ENVELOPE SCALE
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom regulatory specifications line */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full mt-auto">
+            <span>INTU_SCALING ENGINE_V1_ZO_MA</span>
+            <span>CINEMATIC CALIBRATION ALIGNED CORE TECH</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-vw-dimensions':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#040406] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-3 border border-zinc-900 shadow-2xl select-none cursor-pointer ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Title Header text */}
+          <div className="text-center pt-1.5 z-10">
+            <span className="text-[7.5px] font-mono font-black text-rose-500 uppercase tracking-widest leading-none">Ergonomics & Frame Dimensions Blueprints</span>
+            <h2 className="text-xs md:text-sm font-black tracking-widest text-white uppercase font-sans mt-0.5">
+              SLIM DEPTH CHASSIS ENGINEERING LAYOUT
+            </h2>
+          </div>
+
+          {/* Diagonal Screen Arrow specs lines representation */}
+          <div className="flex-1 flex items-center justify-around my-1 z-10 px-4">
+            {/* Diagram Left: Front View measurement card */}
+            <div className="flex flex-col items-center space-y-1">
+              <span className="text-[5.5px] font-mono font-bold text-zinc-400 uppercase">Front Silhouette Layout</span>
+              <div className="w-36 h-20 border border-dashed border-zinc-700 bg-black/75 rounded-lg relative flex items-center justify-center p-2">
+                <div className="w-28 h-14 border border-zinc-500 bg-zinc-950 rounded flex flex-col items-center justify-center relative">
+                  {/* Diagonal measure line */}
+                  <svg className="absolute inset-0 w-full h-full stroke-zinc-500/30" viewBox="0 0 100 50">
+                    <line x1="5" y1="45" x2="95" y2="5" stroke="#f59e0b" strokeWidth="0.8" strokeDasharray="2 2" />
+                  </svg>
+                  <span className="text-[7px] font-black font-sans text-white leading-none">80 cm</span>
+                  <span className="text-[5.5px] font-mono text-zinc-400 leading-none mt-0.5">32 inch class screen</span>
+                </div>
+
+                {/* Annotation lines */}
+                <div className="absolute left-1 flex flex-col justify-center h-full text-[4px] font-mono text-zinc-400 leading-none scale-[0.9]">
+                  <span>43.0 cm</span>
+                  <span className="opacity-70 mt-0.5">Height</span>
+                </div>
+                <div className="absolute top-1 text-[4px] font-mono text-zinc-400 leading-none scale-[0.9] text-center w-full">
+                  <span>73.0 cm Width Panel Scope</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Diagram Right: Profile aspect */}
+            <div className="flex flex-col items-center space-y-1">
+              <span className="text-[5.5px] font-mono font-bold text-zinc-400 uppercase">Side depth scale</span>
+              <div className="w-16 h-20 border border-dashed border-zinc-700 bg-black/75 rounded-lg flex flex-col items-center justify-center p-2">
+                <svg className="w-10 h-14 text-zinc-500 fill-none" viewBox="0 0 20 40">
+                  {/* Bezel slim edge profile */}
+                  <rect x="8" y="4" width="4" height="28" rx="0.3" fill="#1c1917" stroke="#fbbf24" strokeWidth="0.6" />
+                  {/* Pedestal stand */}
+                  <path d="M 10 32 L 2 37 L 18 37 Z" fill="#222" stroke="#555" strokeWidth="0.5" />
+                </svg>
+                <div className="text-[4.5px] font-mono text-zinc-400 leading-none mt-1 text-center">
+                  <span>Depth: 16.0 cm</span> <br />
+                  <span className="opacity-75">including stand leg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom metadata tags */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full mt-auto">
+            <span>REGISTRATION CODE: VW-DIMENS-32-SPEC</span>
+            <span>NET WEIGHT: 3.4 KG ULTRA LIGHT SHELL</span>
+          </div>
+        </div>
+      );
+
+    case 'custom-vw-infographic':
+      return (
+        <div 
+          onClick={onClick}
+          className={`relative aspect-video bg-[#020204] text-white rounded-2xl overflow-hidden flex flex-col justify-between p-3.5 border border-zinc-900 shadow-2xl select-none cursor-pointer ${className}`}
+        >
+          <MeshGrid />
+
+          {/* Core grid configuration dual pane layout */}
+          <div className="grid grid-cols-12 gap-2.5 flex-grow h-28 mt-2.5 z-10 items-stretch px-1">
+            {/* Grid Box Left Core Tech Pills */}
+            <div className="col-span-6 flex flex-col justify-between space-y-1">
+              {[
+                { label: '300 Nits Brightness', sub: 'DAZZLING BRIGHTNESS ARRAY', highlight: true },
+                { label: 'Edgeless Slim Frame', sub: 'MAXIMIZES SCREEN FOCUS', highlight: false },
+                { label: 'True Display Gamut', sub: 'FOR DEEP RICH ENHANCED COLO', highlight: false },
+                { label: '20W Surround Audio', sub: 'IMMERSIVE HOME CINEMA SOUND', highlight: false }
+              ].map((badge, idx) => (
+                <div 
+                  key={idx} 
+                  className={`flex flex-col items-start text-left p-1 rounded border ${
+                    badge.highlight 
+                      ? 'bg-amber-500/10 border-amber-500/30' 
+                      : 'bg-zinc-900/40 border-zinc-800'
+                  }`}
+                >
+                  <span className={`text-[7.5px] font-black font-sans uppercase leading-tight ${
+                    badge.highlight ? 'text-amber-400' : 'text-white'
+                  }`}>
+                    {badge.label}
+                  </span>
+                  <span className="text-[4px] text-zinc-400 font-mono tracking-widest mt-0.5">{badge.sub}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Grid Box Right 3D Visual Art TV frame */}
+            <div className="col-span-6 bg-zinc-950/80 border border-zinc-850 p-2 rounded-xl relative flex items-center justify-center overflow-hidden">
+              {/* Soft neon circles background decorative flow */}
+              <div className="absolute w-24 h-24 rounded-full bg-gradient-to-tr from-rose-600/25 via-pink-600/10 to-transparent blur-md pointer-events-none animate-pulse" />
+              
+              {/* Angled TV representation */}
+              <div className="w-28 aspect-[16/9] border border-zinc-700 bg-black rounded shadow-2xl relative overflow-hidden flex items-center justify-center">
+                {/* Display active prism on screen inside frame */}
+                <div className="absolute inset-[1px] bg-gradient-to-br from-indigo-900 via-rose-950 to-amber-950/80 rounded flex items-center justify-center">
+                  <svg className="w-12 h-12 text-pink-400 animate-spin" style={{ animationDuration: '8s' }} viewBox="0 0 24 24" fill="none">
+                    <polygon points="12,2 22,22 2,22" stroke="currentColor" strokeWidth="1" className="opacity-80" />
+                  </svg>
+                  <span className="absolute bottom-1 text-[4px] font-black tracking-widest text-white/90 font-mono uppercase">
+                    VIVID PRISM RENDER
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom status metrics */}
+          <div className="flex justify-between items-center px-4 py-1.5 text-[6px] md:text-[7px] text-zinc-500 uppercase font-mono bg-zinc-950 border-t border-zinc-900 z-10 w-full mt-auto">
+            <span>HARDWARE STABILIZED LED CHIP AR_CORE</span>
+            <span>WIDE PERSPECTIVE SCALE: 178 DEGREES CONT</span>
+          </div>
+        </div>
+      );
+
     default:
       return (
         <img
